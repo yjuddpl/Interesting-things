@@ -1,0 +1,1457 @@
+{
+  "last_node_id": 47,
+  "last_link_id": 52,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": {
+        "0": -500,
+        "1": -80
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 36,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 700,
+        "1": -80
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 39,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 18,
+      "type": "LoadImage",
+      "pos": {
+        "0": -90,
+        "1": -90
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "512.png",
+        "image"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1890,
+        "1": -90
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 41,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 21,
+      "type": "LoadImage",
+      "pos": {
+        "0": 1100,
+        "1": -90
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_temp_rjuti_00014_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "PreviewImage",
+      "pos": {
+        "0": -110,
+        "1": 470
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 46,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 24,
+      "type": "LoadImage",
+      "pos": {
+        "0": -900,
+        "1": 470
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            45
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_temp_rjuti_00014_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1490,
+        "1": 460
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 44,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 27,
+      "type": "LoadImage",
+      "pos": {
+        "0": 700,
+        "1": 460
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            43
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_temp_ztbxr_00002_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "LoadImage",
+      "pos": {
+        "0": 300,
+        "1": 460
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "20190930092215289686.png",
+        "image"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": {
+        "0": -80,
+        "1": -460
+      },
+      "size": {
+        "0": 650,
+        "1": 230
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null,
+          "label": "可选连接"
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 31,
+      "type": "PreviewImage",
+      "pos": {
+        "0": -120,
+        "1": 1010
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 48,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 32,
+      "type": "LoadImage",
+      "pos": {
+        "0": -910,
+        "1": 1010
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            47
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "u=1066729113,2780178465&fm=253&fmt=auto.webp",
+        "image"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1090,
+        "1": 1010
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 50,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 35,
+      "type": "LoadImage",
+      "pos": {
+        "0": 300,
+        "1": 1010
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            49
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "12dfq234.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 2290,
+        "1": 1010
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 52,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 38,
+      "type": "LoadImage",
+      "pos": {
+        "0": 1500,
+        "1": 1010
+      },
+      "size": {
+        "0": 380,
+        "1": 440
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            51
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "4916541.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": -920,
+        "1": -80
+      },
+      "size": {
+        "0": 400,
+        "1": 430
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            36
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "None",
+        "A young woman sits on a sofa, holding a book and facing the camera. She wears delicate silver hoop earrings adorned with tiny,sparkling diamonds that catch the light. She is dressed in a cozy cream sweater. Behind her，there is a table with a cup of water in a sleek minimalist blue mug. The background is a serene indoor setting, adorned with tasteful art and flowers, creating a cozy and peaceful ambiance.",
+        "Auto",
+        "Balanced",
+        3.5,
+        1.8,
+        50,
+        true,
+        false,
+        512,
+        512,
+        1102725546155245,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 40,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": 310,
+        "1": -80
+      },
+      "size": {
+        "0": 380,
+        "1": 430
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 37,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            39
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "None",
+        "Please remove the woman's earrings in (image_1). Replace the coffee cup with a clear glass filled with ice-cold, fizzy cola.",
+        "Auto",
+        "Balanced",
+        3.5,
+        1.8,
+        50,
+        true,
+        false,
+        512,
+        512,
+        1049915030025380,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 41,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": 1490,
+        "1": -80
+      },
+      "size": {
+        "0": 390,
+        "1": 430
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 40,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "None",
+        "Detect the skeleton of human in this image.",
+        "Auto",
+        "Balanced",
+        3.5,
+        1.8,
+        50,
+        true,
+        false,
+        512,
+        512,
+        760722825391914,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 42,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": 1090,
+        "1": 460
+      },
+      "size": {
+        "0": 380,
+        "1": 450
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 42,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": 43,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            44
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "None",
+        "A professor and a boy are reading books together.The professor is the middle man in (image_1) . The boy is the boy holding a book in (image_2) .",
+        "Auto",
+        "Balanced",
+        3.5,
+        2,
+        50,
+        true,
+        false,
+        512,
+        512,
+        834143449463460,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 43,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": -510,
+        "1": 470
+      },
+      "size": {
+        "0": 390,
+        "1": 430
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 45,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            46
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "None",
+        "Following the pose of this image, generate a new photo: A young boy is sitting on a sofa in the library, holding a book.",
+        "Auto",
+        "Balanced",
+        3.5,
+        1.8,
+        50,
+        true,
+        false,
+        512,
+        512,
+        758502463718939,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 44,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": -520,
+        "1": 1010
+      },
+      "size": {
+        "0": 390,
+        "1": 430
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 47,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            48
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "None",
+        "delete the rain in this image (image_1).",
+        "Auto",
+        "Balanced",
+        3.5,
+        1.8,
+        30,
+        true,
+        false,
+        512,
+        512,
+        646477740840602,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 45,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": 690,
+        "1": 1010
+      },
+      "size": {
+        "0": 390,
+        "1": 430
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 49,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            50
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "None",
+        "Please remove the white patch damage on the face in (image_1) and inpainting it.",
+        "Auto",
+        "Balanced",
+        1.5,
+        1.8,
+        30,
+        true,
+        false,
+        512,
+        512,
+        388950413223246,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 46,
+      "type": "ailab_OmniGen",
+      "pos": {
+        "0": 1890,
+        "1": 1010
+      },
+      "size": {
+        "0": 390,
+        "1": 430
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 51,
+          "shape": 7,
+          "label": "image_1"
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_2"
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            52
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ailab_OmniGen"
+      },
+      "widgets_values": [
+        "Deblur image (image_1)",
+        "",
+        "Auto",
+        "Balanced",
+        3.5,
+        1.8,
+        30,
+        true,
+        false,
+        512,
+        512,
+        81240896525593,
+        "randomize",
+        1024,
+        true
+      ]
+    },
+    {
+      "id": 47,
+      "type": "Note",
+      "pos": {
+        "0": -900,
+        "1": -480
+      },
+      "size": {
+        "0": 760,
+        "1": 310
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node: \nhttps://github.com/1038lab/ComfyUI-OmniGen\n\nModels:\ncomfyui/models/LLM/OmniGen-v1\nhttps://huggingface.co/Shitao/OmniGen-v1/tree/main\n\ncloud:\nWorkflows:https://pan.quark.cn/s/e76d9e972e8c\nmodels:https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node: https://pan.quark.cn/s/16dca69ca023\n\nVideos:\nbilibili:https://space.bilibili.com/473724003\nYouTube:https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97"
+      ],
+      "color": "#c09430"
+    }
+  ],
+  "links": [
+    [
+      36,
+      39,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      18,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ],
+    [
+      39,
+      40,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      21,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      41,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      28,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      27,
+      0,
+      42,
+      1,
+      "IMAGE"
+    ],
+    [
+      44,
+      42,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      24,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      43,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      47,
+      32,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      48,
+      44,
+      0,
+      31,
+      0,
+      "IMAGE"
+    ],
+    [
+      49,
+      35,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      50,
+      45,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      38,
+      0,
+      46,
+      0,
+      "IMAGE"
+    ],
+    [
+      52,
+      46,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "模糊、噪点修复",
+      "bounding": [
+        1490,
+        930,
+        1190,
+        524
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    },
+    {
+      "title": "多图融合",
+      "bounding": [
+        290,
+        390,
+        1583,
+        526
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    },
+    {
+      "title": "转骨骼图",
+      "bounding": [
+        1090,
+        -160,
+        1180,
+        524
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    },
+    {
+      "title": "文生图",
+      "bounding": [
+        -930,
+        -160,
+        820,
+        530
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    },
+    {
+      "title": "移除或更改指定物品",
+      "bounding": [
+        -100,
+        -160,
+        1180,
+        530
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    },
+    {
+      "title": "骨骼图转绘",
+      "bounding": [
+        -910,
+        390,
+        1190,
+        524
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    },
+    {
+      "title": "异物修复",
+      "bounding": [
+        -920,
+        930,
+        1200,
+        530
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    },
+    {
+      "title": "损坏修复",
+      "bounding": [
+        290,
+        930,
+        1190,
+        524
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {
+        "pinned": true
+      }
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.45,
+      "offset": [
+        1781.1111111111134,
+        500.5555555555561
+      ]
+    }
+  },
+  "version": 0.4
+}

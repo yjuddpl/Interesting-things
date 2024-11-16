@@ -1,0 +1,2085 @@
+{
+  "last_node_id": 103,
+  "last_link_id": 178,
+  "nodes": [
+    {
+      "id": 73,
+      "type": "LoraLoader|pysssss",
+      "pos": [
+        -410,
+        -440
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 143,
+          "label": "模型"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 144,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            145
+          ],
+          "shape": 3,
+          "label": "模型",
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            146
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader|pysssss"
+      },
+      "widgets_values": [
+        {
+          "content": "XL\\add-detail-xl增加细节.safetensors",
+          "image": null
+        },
+        0.8,
+        1,
+        "[none]"
+      ],
+      "locked": true
+    },
+    {
+      "id": 83,
+      "type": "easy promptConcat",
+      "pos": [
+        60,
+        -560
+      ],
+      "size": [
+        320,
+        110
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt1",
+          "type": "STRING",
+          "link": 155,
+          "widget": {
+            "name": "prompt1"
+          },
+          "slot_index": 0,
+          "label": "提示词1"
+        },
+        {
+          "name": "prompt2",
+          "type": "STRING",
+          "link": 156,
+          "widget": {
+            "name": "prompt2"
+          },
+          "label": "提示词2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            157
+          ],
+          "shape": 3,
+          "label": "提示词",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy promptConcat"
+      },
+      "widgets_values": [
+        "",
+        "",
+        ","
+      ],
+      "color": "#008181",
+      "locked": true
+    },
+    {
+      "id": 84,
+      "type": "easy string",
+      "pos": [
+        -150,
+        -590
+      ],
+      "size": [
+        320,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            155
+          ],
+          "shape": 3,
+          "label": "字符串",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy string"
+      },
+      "widgets_values": [
+        "Masterpiece,high precision,high definition,ultra high definition,16K,C4D,OC,authentic,unparalleled,wallpaper,"
+      ],
+      "locked": true
+    },
+    {
+      "id": 85,
+      "type": "easy string",
+      "pos": [
+        -140,
+        -560
+      ],
+      "size": [
+        320,
+        60
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            156
+          ],
+          "shape": 3,
+          "label": "字符串",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy string"
+      },
+      "widgets_values": [
+        "Masterpiece,high precision,high definition,ultra high definition,16K,C4D,OC,authentic,unparalleled,wallpaper,"
+      ],
+      "locked": true
+    },
+    {
+      "id": 86,
+      "type": "easy promptConcat",
+      "pos": [
+        40,
+        -510
+      ],
+      "size": [
+        320,
+        110
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt1",
+          "type": "STRING",
+          "link": 157,
+          "widget": {
+            "name": "prompt1"
+          },
+          "slot_index": 0,
+          "label": "提示词1"
+        },
+        {
+          "name": "prompt2",
+          "type": "STRING",
+          "link": 158,
+          "widget": {
+            "name": "prompt2"
+          },
+          "label": "提示词2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            147
+          ],
+          "shape": 3,
+          "label": "提示词",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy promptConcat"
+      },
+      "widgets_values": [
+        "",
+        "",
+        ","
+      ],
+      "color": "#008181",
+      "locked": true
+    },
+    {
+      "id": 74,
+      "type": "LoraLoader|pysssss",
+      "pos": [
+        -410,
+        -250
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 145,
+          "label": "模型"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 146,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            163
+          ],
+          "shape": 3,
+          "label": "模型",
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            159,
+            160,
+            162
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader|pysssss"
+      },
+      "widgets_values": [
+        {
+          "content": "XL\\xl_more_art-full_v1.safetensors",
+          "image": "loras/XL\\xl_more_art-full_v1.png"
+        },
+        0.8,
+        1,
+        "[none]"
+      ],
+      "locked": true
+    },
+    {
+      "id": 81,
+      "type": "easy pipeIn",
+      "pos": [
+        690,
+        -600
+      ],
+      "size": [
+        210,
+        190
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipe",
+          "type": "PIPE_LINE",
+          "link": null,
+          "label": "节点束"
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 163,
+          "label": "模型"
+        },
+        {
+          "name": "pos",
+          "type": "CONDITIONING",
+          "link": 152
+        },
+        {
+          "name": "neg",
+          "type": "CONDITIONING",
+          "link": 153
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 154,
+          "label": "Latent",
+          "slot_index": 4
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 161
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 162
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像"
+        },
+        {
+          "name": "xyPlot",
+          "type": "XYPLOT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "PIPE_LINE",
+          "links": [
+            151
+          ],
+          "shape": 3,
+          "label": "节点束",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy pipeIn"
+      },
+      "locked": true
+    },
+    {
+      "id": 78,
+      "type": "CLIPTextEncode",
+      "pos": [
+        690,
+        -160
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 160,
+          "label": "CLIP"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 149,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            152
+          ],
+          "shape": 3,
+          "label": "条件",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#af3535",
+      "locked": true
+    },
+    {
+      "id": 79,
+      "type": "CLIPTextEncode",
+      "pos": [
+        690,
+        -240
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 159,
+          "label": "CLIP"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 150,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            153
+          ],
+          "shape": 3,
+          "label": "条件",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#346434",
+      "locked": true
+    },
+    {
+      "id": 77,
+      "type": "easy negative",
+      "pos": [
+        -190,
+        -330
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": [
+            148
+          ],
+          "shape": 3,
+          "label": "负面提示词"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy negative"
+      },
+      "widgets_values": [
+        "nsfw,bad proportions, low resolution,worst quality, low quality, normal quality, lowres,  inaccurate limb, bad, ugly, terrible,  extra fingers, fewer fingers, missing fingers, extra arms, extra legs, inaccurate eyes, bad composition, bad anatomy, error, extra digit, fewer digits, cropped, low res, jpeg artifacts, trademark,artist's name, username, watermarksignature, watermark,text, words,"
+      ],
+      "color": "#af3535",
+      "locked": true
+    },
+    {
+      "id": 80,
+      "type": "easy fullkSampler",
+      "pos": [
+        910,
+        -600
+      ],
+      "size": [
+        360,
+        430
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipe",
+          "type": "PIPE_LINE",
+          "link": 151,
+          "label": "节点束",
+          "slot_index": 0
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型（可选）"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "正面条件（可选）"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "负面条件（可选）"
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": null,
+          "label": "Latent（可选）"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "xyPlot",
+          "type": "XYPLOT",
+          "link": null
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "slot_index": 8
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 170,
+          "widget": {
+            "name": "steps"
+          },
+          "label": "步数",
+          "slot_index": 9
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 171,
+          "widget": {
+            "name": "cfg"
+          },
+          "label": "CFG",
+          "slot_index": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "PIPE_LINE",
+          "links": [],
+          "shape": 3,
+          "label": "节点束",
+          "slot_index": 0
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            164
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 1
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "label": "模型",
+          "slot_index": 2
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "label": "正面条件",
+          "slot_index": 3
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "label": "负面条件",
+          "slot_index": 4
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "随机种"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy fullkSampler"
+      },
+      "widgets_values": [
+        8,
+        2.5,
+        "dpmpp_2m",
+        "karras",
+        1,
+        "Hide",
+        0,
+        "ComfyUI",
+        666,
+        "fixed"
+      ],
+      "locked": true
+    },
+    {
+      "id": 71,
+      "type": "PreviewImage",
+      "pos": [
+        860,
+        280
+      ],
+      "size": [
+        320,
+        330
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 142,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "locked": true
+    },
+    {
+      "id": 82,
+      "type": "EmptyLatentImage",
+      "pos": [
+        690,
+        -380
+      ],
+      "size": [
+        210,
+        110
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            154
+          ],
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        4
+      ],
+      "locked": true
+    },
+    {
+      "id": 89,
+      "type": "SaveImage",
+      "pos": [
+        1190,
+        0
+      ],
+      "size": {
+        "0": 320,
+        "1": 270
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 165,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "3D\\3D"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "ImageScale",
+      "pos": [
+        620,
+        170
+      ],
+      "size": [
+        210,
+        130
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 167,
+          "label": "图像"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 175,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 176,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            140
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1024,
+        1024,
+        "disabled"
+      ],
+      "locked": true
+    },
+    {
+      "id": 101,
+      "type": "Video Dump Frames",
+      "pos": [
+        -50,
+        -920
+      ],
+      "size": {
+        "0": 320,
+        "1": 170
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "output_path",
+          "type": "STRING",
+          "links": [
+            178
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "processed_count",
+          "type": "NUMBER",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Video Dump Frames"
+      },
+      "widgets_values": [
+        "D:/0000/1video/g72.mp4",
+        "D:/0000/video",
+        "frame_",
+        4,
+        "png"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "easy stylesSelector",
+      "pos": [
+        220,
+        -590
+      ],
+      "size": [
+        430,
+        500
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": 147,
+          "widget": {
+            "name": "positive"
+          },
+          "slot_index": 0,
+          "label": "正面提示词（可选）"
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": 148,
+          "widget": {
+            "name": "negative"
+          },
+          "slot_index": 1,
+          "label": "负面提示词（可选）"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            149
+          ],
+          "shape": 3,
+          "label": "正面提示词",
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "links": [
+            150
+          ],
+          "shape": 3,
+          "label": "负面提示词",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy stylesSelector",
+        "values": [
+          "Fooocus Masterpiece",
+          "Fooocus Negative",
+          "sai-photographic"
+        ]
+      },
+      "widgets_values": [
+        "fooocus_styles",
+        "",
+        "",
+        "Fooocus Masterpiece,Fooocus Negative,sai-photographic"
+      ],
+      "locked": true
+    },
+    {
+      "id": 93,
+      "type": "easy int",
+      "pos": [
+        -410,
+        0
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            170
+          ],
+          "shape": 3,
+          "label": "整数",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy int"
+      },
+      "widgets_values": [
+        30
+      ],
+      "locked": true
+    },
+    {
+      "id": 94,
+      "type": "easy float",
+      "pos": [
+        -410,
+        110
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "float",
+          "type": "FLOAT",
+          "links": [
+            171
+          ],
+          "shape": 3,
+          "label": "浮点",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy float"
+      },
+      "widgets_values": [
+        8
+      ],
+      "locked": true
+    },
+    {
+      "id": 88,
+      "type": "Any Switch (rgthree)",
+      "pos": {
+        "0": 630,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 110
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_01",
+          "type": "IMAGE",
+          "link": 166,
+          "label": "输入_01",
+          "dir": 3
+        },
+        {
+          "name": "any_02",
+          "type": "IMAGE",
+          "link": 169,
+          "label": "输入_02",
+          "dir": 3
+        },
+        {
+          "name": "any_03",
+          "type": "IMAGE",
+          "link": 174,
+          "label": "输入_03",
+          "dir": 3
+        },
+        {
+          "name": "any_04",
+          "type": "IMAGE",
+          "link": null,
+          "label": "输入_04",
+          "dir": 3
+        },
+        {
+          "name": "any_05",
+          "type": "IMAGE",
+          "link": null,
+          "label": "输入_05",
+          "dir": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": [
+            167,
+            168
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "dir": 4,
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 100,
+      "type": "easy int",
+      "pos": [
+        620,
+        350
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            175,
+            176,
+            177
+          ],
+          "shape": 3,
+          "label": "整数",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy int"
+      },
+      "widgets_values": [
+        512
+      ],
+      "color": "#346434",
+      "locked": true
+    },
+    {
+      "id": 102,
+      "type": "ShowText|pysssss",
+      "pos": [
+        290,
+        -920
+      ],
+      "size": {
+        "0": 220,
+        "1": 170
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 178,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "D:\\0000\\video"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "PreviewImage",
+      "pos": [
+        1200,
+        10
+      ],
+      "size": [
+        630,
+        610
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 136,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "locked": true
+    },
+    {
+      "id": 103,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": {
+        "0": -440,
+        "1": -860,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 310,
+        "1": 110
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null,
+          "label": "可选连接"
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "-处理",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "always one"
+      },
+      "color": "#346434"
+    },
+    {
+      "id": 65,
+      "type": "LoadImage",
+      "pos": [
+        240,
+        0
+      ],
+      "size": [
+        330,
+        620
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            166
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "145072.jpg",
+        "image"
+      ],
+      "locked": true
+    },
+    {
+      "id": 62,
+      "type": "SBS_by_SamSeen",
+      "pos": [
+        860,
+        10
+      ],
+      "size": [
+        320,
+        100
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "base_image",
+          "type": "IMAGE",
+          "link": 168,
+          "slot_index": 0,
+          "label": "base_image"
+        },
+        {
+          "name": "depth_map",
+          "type": "IMAGE",
+          "link": 135,
+          "slot_index": 1,
+          "label": "depth_map"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            136,
+            165
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SBS_by_SamSeen"
+      },
+      "widgets_values": [
+        35,
+        "Parallel"
+      ],
+      "locked": true
+    },
+    {
+      "id": 58,
+      "type": "DepthAnythingV2Preprocessor",
+      "pos": [
+        860,
+        160
+      ],
+      "size": [
+        320,
+        80
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 140,
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": 177,
+          "widget": {
+            "name": "resolution"
+          },
+          "label": "分辨率"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            135,
+            142
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingV2Preprocessor"
+      },
+      "widgets_values": [
+        "depth_anything_v2_vits.pth",
+        1024
+      ],
+      "locked": true
+    },
+    {
+      "id": 98,
+      "type": "Load Image Batch",
+      "pos": [
+        -150,
+        10
+      ],
+      "size": [
+        320,
+        560
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            174
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "incremental_image",
+        0,
+        "Batch 001",
+        "D:\\0000\\video124",
+        "*",
+        "false",
+        "true"
+      ],
+      "locked": true
+    },
+    {
+      "id": 76,
+      "type": "easy positive",
+      "pos": [
+        -190,
+        -590
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            158
+          ],
+          "shape": 3,
+          "label": "正面提示词",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy positive"
+      },
+      "widgets_values": [
+        "epiCPhoto,\nThe Starlight Prism Blossom is renowned for its prism-like petals. Each flower consists of multiple transparent geometric facets that refract and reflect the surrounding light, forming dazzling rainbow-colored beams. At the center of each flower is a small light source that changes colors continuously, adding to the flower's enchanting charm. The stems are composed of transparent tubular structures, filled with fluorescent liquid that shimmers with the plant's movements. At night, these flowers resemble twinkling stars, illuminating the entire garden and creating a dreamy atmosphere."
+      ],
+      "color": "#346434",
+      "locked": true
+    },
+    {
+      "id": 92,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": {
+        "0": -420,
+        "1": 230,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 230,
+        "1": 150
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null,
+          "label": "可选连接"
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "-选择",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "always one"
+      },
+      "color": "#346434"
+    },
+    {
+      "id": 72,
+      "type": "CheckpointLoader|pysssss",
+      "pos": [
+        -410,
+        -600
+      ],
+      "size": [
+        210,
+        120
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            143
+          ],
+          "shape": 3,
+          "label": "模型",
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            144
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            161
+          ],
+          "shape": 3,
+          "label": "VAE",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoader|pysssss"
+      },
+      "widgets_values": [
+        {
+          "content": "0XL\\leosamsHelloworldXL_helloworldXL60.safetensors",
+          "image": "checkpoints/0XL\\leosamsHelloworldXL_helloworldXL60.jpg"
+        },
+        "[none]"
+      ],
+      "locked": true
+    },
+    {
+      "id": 87,
+      "type": "easy imageChooser",
+      "pos": [
+        1280,
+        -610
+      ],
+      "size": [
+        560,
+        510
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 164,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            169
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "values": [
+          2
+        ],
+        "Node name for S&R": "easy imageChooser"
+      },
+      "widgets_values": [
+        "Always Pause",
+        "",
+        ""
+      ],
+      "locked": true
+    }
+  ],
+  "links": [
+    [
+      135,
+      58,
+      0,
+      62,
+      1,
+      "IMAGE"
+    ],
+    [
+      136,
+      62,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      140,
+      66,
+      0,
+      58,
+      0,
+      "IMAGE"
+    ],
+    [
+      142,
+      58,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      143,
+      72,
+      0,
+      73,
+      0,
+      "MODEL"
+    ],
+    [
+      144,
+      72,
+      1,
+      73,
+      1,
+      "CLIP"
+    ],
+    [
+      145,
+      73,
+      0,
+      74,
+      0,
+      "MODEL"
+    ],
+    [
+      146,
+      73,
+      1,
+      74,
+      1,
+      "CLIP"
+    ],
+    [
+      147,
+      86,
+      0,
+      75,
+      0,
+      "STRING"
+    ],
+    [
+      148,
+      77,
+      0,
+      75,
+      1,
+      "STRING"
+    ],
+    [
+      149,
+      75,
+      0,
+      78,
+      1,
+      "STRING"
+    ],
+    [
+      150,
+      75,
+      1,
+      79,
+      1,
+      "STRING"
+    ],
+    [
+      151,
+      81,
+      0,
+      80,
+      0,
+      "PIPE_LINE"
+    ],
+    [
+      152,
+      78,
+      0,
+      81,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      153,
+      79,
+      0,
+      81,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      154,
+      82,
+      0,
+      81,
+      4,
+      "LATENT"
+    ],
+    [
+      155,
+      84,
+      0,
+      83,
+      0,
+      "STRING"
+    ],
+    [
+      156,
+      85,
+      0,
+      83,
+      1,
+      "STRING"
+    ],
+    [
+      157,
+      83,
+      0,
+      86,
+      0,
+      "STRING"
+    ],
+    [
+      158,
+      76,
+      0,
+      86,
+      1,
+      "STRING"
+    ],
+    [
+      159,
+      74,
+      1,
+      79,
+      0,
+      "CLIP"
+    ],
+    [
+      160,
+      74,
+      1,
+      78,
+      0,
+      "CLIP"
+    ],
+    [
+      161,
+      72,
+      2,
+      81,
+      5,
+      "VAE"
+    ],
+    [
+      162,
+      74,
+      1,
+      81,
+      6,
+      "CLIP"
+    ],
+    [
+      163,
+      74,
+      0,
+      81,
+      1,
+      "MODEL"
+    ],
+    [
+      164,
+      80,
+      1,
+      87,
+      0,
+      "IMAGE"
+    ],
+    [
+      165,
+      62,
+      0,
+      89,
+      0,
+      "IMAGE"
+    ],
+    [
+      166,
+      65,
+      0,
+      88,
+      0,
+      "*"
+    ],
+    [
+      167,
+      88,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      168,
+      88,
+      0,
+      62,
+      0,
+      "IMAGE"
+    ],
+    [
+      169,
+      87,
+      0,
+      88,
+      1,
+      "IMAGE"
+    ],
+    [
+      170,
+      93,
+      0,
+      80,
+      9,
+      "INT"
+    ],
+    [
+      171,
+      94,
+      0,
+      80,
+      10,
+      "FLOAT"
+    ],
+    [
+      174,
+      98,
+      0,
+      88,
+      2,
+      "IMAGE"
+    ],
+    [
+      175,
+      100,
+      0,
+      66,
+      1,
+      "INT"
+    ],
+    [
+      176,
+      100,
+      0,
+      66,
+      2,
+      "INT"
+    ],
+    [
+      177,
+      100,
+      0,
+      58,
+      1,
+      "INT"
+    ],
+    [
+      178,
+      101,
+      0,
+      102,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "模型、提示词",
+      "bounding": [
+        -420,
+        -680,
+        1082,
+        592
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "图像生成-选择",
+      "bounding": [
+        680,
+        -680,
+        1170,
+        594
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "上传图像-选择",
+      "bounding": [
+        230,
+        -70,
+        360,
+        710
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "3D深度处理",
+      "bounding": [
+        850,
+        -70,
+        984,
+        692
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "采样步数、CFG",
+      "bounding": [
+        -420,
+        -70,
+        230,
+        250
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "视频帧加载-选择",
+      "bounding": [
+        -160,
+        -70,
+        350,
+        710
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "视频拆帧-处理",
+      "bounding": [
+        -60,
+        -1000,
+        580,
+        254
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "3D-处理",
+      "bounding": [
+        -440,
+        -730,
+        2380,
+        1420
+      ],
+      "color": "#444",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.964614964500001,
+      "offset": {
+        "0": 282.90476848552476,
+        "1": 641.2723438519112
+      }
+    }
+  },
+  "version": 0.4
+}

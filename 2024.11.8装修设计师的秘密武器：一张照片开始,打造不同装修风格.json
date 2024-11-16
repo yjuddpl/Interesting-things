@@ -1,0 +1,2374 @@
+{
+  "last_node_id": 224,
+  "last_link_id": 506,
+  "nodes": [
+    {
+      "id": 35,
+      "type": "AnyLineArtPreprocessor_aux",
+      "pos": {
+        "0": 890,
+        "1": 300
+      },
+      "size": {
+        "0": 320,
+        "1": 180
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 384,
+          "label": "图像"
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": 483,
+          "widget": {
+            "name": "resolution"
+          },
+          "shape": 7,
+          "label": "分辨率"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            216,
+            368
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnyLineArtPreprocessor_aux"
+      },
+      "widgets_values": [
+        "lineart_realisitic",
+        1280,
+        0,
+        1,
+        32,
+        1
+      ]
+    },
+    {
+      "id": 37,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": 560,
+        "1": 240
+      },
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 489,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 490,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            422
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 38,
+      "type": "PixelPerfectResolution",
+      "pos": {
+        "0": 560,
+        "1": 390
+      },
+      "size": {
+        "0": 300,
+        "1": 100
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "original_image",
+          "type": "IMAGE",
+          "link": 485,
+          "label": "图像"
+        },
+        {
+          "name": "image_gen_width",
+          "type": "INT",
+          "link": 481,
+          "widget": {
+            "name": "image_gen_width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "image_gen_height",
+          "type": "INT",
+          "link": 482,
+          "widget": {
+            "name": "image_gen_height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RESOLUTION (INT)",
+          "type": "INT",
+          "links": [
+            483,
+            484
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "分辨率(整数)"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixelPerfectResolution"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "Just Resize"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "LoadImage",
+      "pos": {
+        "0": -370,
+        "1": -220
+      },
+      "size": [
+        510,
+        580
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            376
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "f4sd11f.webp",
+        "image"
+      ]
+    },
+    {
+      "id": 62,
+      "type": "DepthAnythingV2Preprocessor",
+      "pos": {
+        "0": 1230,
+        "1": 330
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 385,
+          "label": "图像"
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": 484,
+          "widget": {
+            "name": "resolution"
+          },
+          "shape": 7,
+          "label": "分辨率"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            215,
+            367
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingV2Preprocessor"
+      },
+      "widgets_values": [
+        "depth_anything_v2_vitl.pth",
+        1280
+      ]
+    },
+    {
+      "id": 129,
+      "type": "DualCLIPLoaderGGUF",
+      "pos": {
+        "0": 160,
+        "1": 140
+      },
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            357,
+            359
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoaderGGUF"
+      },
+      "widgets_values": [
+        "SD3\\t5-v1_1-xxl-encoder-Q8_0.gguf",
+        "ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 130,
+      "type": "VAELoader",
+      "pos": {
+        "0": 160,
+        "1": 290
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            318,
+            319,
+            322,
+            369,
+            370
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 133,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1600,
+        "1": 270
+      },
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 421,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 318,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            309,
+            323
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 136,
+      "type": "ControlNetLoader",
+      "pos": {
+        "0": 1220,
+        "1": 200
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            501,
+            502
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "ControlNet"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "FLUX.1\\InstantX-FLUX1-Dev-Union\\diffusion_pytorch_model.safetensors"
+      ]
+    },
+    {
+      "id": 144,
+      "type": "UpscaleModelLoader",
+      "pos": {
+        "0": 560,
+        "1": 580
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            303
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "放大模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4xRealWebPhoto_v4_dat2.pth"
+      ]
+    },
+    {
+      "id": 147,
+      "type": "ImageUpscaleWithModel",
+      "pos": {
+        "0": 580,
+        "1": 720
+      },
+      "size": {
+        "0": 270,
+        "1": 50
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 303,
+          "label": "放大模型"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 309,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            505
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 149,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1550,
+        "1": 600
+      },
+      "size": [
+        140,
+        50
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 427,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 319,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            415
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 150,
+      "type": "VAEEncode",
+      "pos": {
+        "0": 610,
+        "1": 1100
+      },
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 479,
+          "label": "图像"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 322,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            430
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 151,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1840,
+        "1": -170
+      },
+      "size": [
+        520,
+        600
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 323,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 163,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 570,
+        "1": -40
+      },
+      "size": {
+        "0": 270,
+        "1": 80
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 357,
+          "label": "CLIP"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 459,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            364,
+            442
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "photo of a room designed by Eero Saarinen, curved plaster walls, carpet floors, acoustic tile ceilings, panoramic windows, tulip-shaped light fixtures, organic furniture forms, shades of white and gray, soft diffused lighting"
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 164,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 570,
+        "1": 90
+      },
+      "size": {
+        "0": 280,
+        "1": 110
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 359,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            372,
+            439
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#af3535"
+    },
+    {
+      "id": 165,
+      "type": "ControlNetApplyAdvanced",
+      "pos": {
+        "0": 880,
+        "1": -30
+      },
+      "size": {
+        "0": 320,
+        "1": 190
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 364,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 372,
+          "label": "负面条件"
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 501,
+          "label": "ControlNet"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 368,
+          "label": "图像"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 369,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            361
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            373
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "负面条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        0.6,
+        0,
+        0.5
+      ]
+    },
+    {
+      "id": 166,
+      "type": "ControlNetApplyAdvanced",
+      "pos": {
+        "0": 1220,
+        "1": -40
+      },
+      "size": {
+        "0": 320,
+        "1": 190
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 361,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 373,
+          "label": "负面条件"
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 502,
+          "label": "ControlNet"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 367,
+          "label": "图像"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 370,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            450
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            420
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "负面条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        0.35000000000000003,
+        0.1,
+        0.4
+      ]
+    },
+    {
+      "id": 168,
+      "type": "ImageResize+",
+      "pos": {
+        "0": 160,
+        "1": -220
+      },
+      "size": [
+        330,
+        220
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 376,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            485,
+            506
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            481,
+            489,
+            491
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            482,
+            490,
+            492
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "高度"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResize+"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "bilinear",
+        "keep proportion",
+        "always",
+        0
+      ]
+    },
+    {
+      "id": 169,
+      "type": "Reroute",
+      "pos": {
+        "0": 300,
+        "1": 350
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 506
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            384,
+            385
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 184,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1700,
+        "1": 570
+      },
+      "size": [
+        640,
+        620
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 415,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "Design/empty"
+      ]
+    },
+    {
+      "id": 185,
+      "type": "KSampler",
+      "pos": {
+        "0": 1570,
+        "1": -50
+      },
+      "size": [
+        250,
+        470
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 446,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 451,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 420,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 422,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            421
+          ],
+          "slot_index": 0,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        967118199328760,
+        "randomize",
+        16,
+        1,
+        "euler",
+        "beta",
+        1
+      ]
+    },
+    {
+      "id": 186,
+      "type": "FluxGuidance",
+      "pos": {
+        "0": 1370,
+        "1": -200
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 450,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            451
+          ],
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        4.5
+      ]
+    },
+    {
+      "id": 187,
+      "type": "LoraLoaderModelOnly",
+      "pos": {
+        "0": 570,
+        "1": -210
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 504,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            449
+          ],
+          "slot_index": 0,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "flux\\Hyper-FLUX.1-dev-16steps-lora.safetensors",
+        0.13
+      ]
+    },
+    {
+      "id": 188,
+      "type": "ModelSamplingFlux",
+      "pos": {
+        "0": 1010,
+        "1": -210
+      },
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 449,
+          "label": "模型"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 491,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 492,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            446
+          ],
+          "slot_index": 0,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "widgets_values": [
+        1.15,
+        0.5,
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": 189,
+      "type": "LoraLoaderModelOnly",
+      "pos": {
+        "0": 890,
+        "1": 910
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 464,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            432
+          ],
+          "slot_index": 0,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "HyperSD\\FLUX.1\\Hyper-FLUX.1-dev-8steps-lora.safetensors",
+        0.13
+      ]
+    },
+    {
+      "id": 190,
+      "type": "KSampler",
+      "pos": {
+        "0": 1220,
+        "1": 590
+      },
+      "size": [
+        320,
+        470
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 431,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 441,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 439,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 430,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            427
+          ],
+          "slot_index": 0,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        381158967726969,
+        "randomize",
+        8,
+        1,
+        "euler",
+        "beta",
+        0.35000000000000003
+      ]
+    },
+    {
+      "id": 193,
+      "type": "ModelSamplingFlux",
+      "pos": {
+        "0": 900,
+        "1": 750
+      },
+      "size": [
+        300,
+        120
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 432,
+          "label": "模型"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 477,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 478,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            431
+          ],
+          "slot_index": 0,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingFlux"
+      },
+      "widgets_values": [
+        1.15,
+        0.5,
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": 195,
+      "type": "FluxGuidance",
+      "pos": {
+        "0": 900,
+        "1": 630
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 442,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            441
+          ],
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        5
+      ]
+    },
+    {
+      "id": 197,
+      "type": "UnetLoaderGGUF",
+      "pos": {
+        "0": 160,
+        "1": 40
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            464,
+            504
+          ],
+          "slot_index": 0,
+          "label": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "gguf\\flux1-dev-Q4_K_S.gguf"
+      ]
+    },
+    {
+      "id": 199,
+      "type": "Text Random Line",
+      "pos": {
+        "0": 260,
+        "1": 490
+      },
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 457,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            460
+          ],
+          "slot_index": 0,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Random Line"
+      },
+      "widgets_values": [
+        "",
+        970329255016840,
+        "randomize"
+      ]
+    },
+    {
+      "id": 204,
+      "type": "Text List to Text",
+      "pos": {
+        "0": 360,
+        "1": 570
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_list",
+          "type": "LIST",
+          "link": 458,
+          "label": "文本列表"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            459
+          ],
+          "slot_index": 0,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text List to Text"
+      },
+      "widgets_values": [
+        ","
+      ]
+    },
+    {
+      "id": 205,
+      "type": "Text Multiline",
+      "pos": {
+        "0": -370,
+        "1": 470
+      },
+      "size": [
+        540,
+        290
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            457
+          ],
+          "slot_index": 0,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "Zaha Hadid, fluid curved walls, glossy epoxy floors, undulating ceilings, angled windows, sculptural light fixtures, futuristic furniture with organic forms, white and silver color scheme, diffused ambient lighting\nFrank Lloyd Wright, natural stone walls, hardwood floors, coffered ceilings, stained glass windows, prairie-style chandeliers, built-in furniture with geometric patterns, earth tones with pops of red, warm indirect lighting\nLe Corbusier, exposed concrete walls, terrazzo floors, flat ceilings, ribbon windows, industrial-style lamps, modular furniture with primary colors, white base with bold color accents, abundant natural light\nMies van der Rohe, glass walls, travertine floors, minimalist ceilings, floor-to-ceiling windows, recessed lighting, Barcelona chairs and daybeds, black and cream palette, clean and uncluttered spaces\nEero Saarinen, curved plaster walls, carpet floors, acoustic tile ceilings, panoramic windows, tulip-shaped light fixtures, organic furniture forms, shades of white and gray, soft diffused lighting\nCharles and Ray Eames, wood-paneled walls, cork floors, exposed beam ceilings, large picture windows, colorful hanging lamps, molded plywood furniture, vibrant color blocking, playful natural light\nEileen Gray, lacquered walls, rubber floors, mirrored ceilings, circular windows, adjustable wall sconces, tubular steel furniture, black and chrome with pops of red, dramatic spot lighting\nArne Jacobsen, textured white walls, linoleum floors, drop ceilings, clerestory windows, egg-shaped pendant lights, iconic chairs in various colors, monochromatic scheme with wood accents, balanced ambient light\nIsamu Noguchi, shoji screen walls, tatami mat floors, bamboo ceilings, sliding paper doors, Akari light sculptures, low-profile furniture, neutral tones with subtle patterns, soft filtered light\nMarcel Breuer, board-formed concrete walls, slate floors, wood-slatted ceilings, corner windows, cantilevered task lamps, tubular steel and leather furniture, grayscale palette with natural textures, focused task lighting\nRay Kappe, exposed timber walls, polished concrete floors, sloped wood ceilings, clerestory windows, track lighting systems, built-in seating and storage, warm wood tones with glass, layered daylighting\nVerner Panton, curved plastic walls, epoxy floors, illuminated ceilings, porthole windows, flowerpot pendant lamps, molded plastic furniture, psychedelic color schemes, immersive colorful lighting\nJean Prouvé, prefab metal walls, linoleum floors, folded plate ceilings, pivot windows, industrial pendant lights, utilitarian furniture with raw materials, primary colors with metallic finishes, functional task lighting\nEttore Sottsass, laminate walls with geometric patterns, terrazzo floors, suspended grid ceilings, asymmetrical windows, Memphis-style table lamps, quirky postmodern furniture, bold clashing colors, theatrical lighting effects\nTadao Ando, smooth concrete walls, wooden floors, skylights, narrow slit windows, concealed LED strips, minimalist custom furniture, monochromatic gray scheme, ethereal natural light\nKelly Wearstler, textured plaster walls, marble inlay floors, coffered ceilings, arched windows, oversized sculptural chandeliers, eclectic mix of vintage and modern furniture, black and gold color palette, dramatic layered lighting\nPatricia Urquiola, colorful tiled walls, patterned cement floors, perforated metal ceilings, floor-to-ceiling glass, woven pendant lights, playful modular furniture, mix of pastels and bold hues, soft diffused illumination\nKarim Rashid, molded polymer walls, resin floors, backlit stretch ceilings, curved glass walls, blob-shaped light fixtures, fluid ergonomic furniture, neon colors with white, dynamic color-changing lights\nNate Berkus, grasscloth wallpapered walls, herringbone wood floors, classic molded ceilings, French doors, vintage crystal chandeliers, mix of antique and contemporary furniture, neutral palette with metallic accents, warm ambient lighting\nJonathan Adler, lacquered walls, needlepoint rugs, Pop Art ceilings, porthole mirrors, Sputnik chandeliers, mid-century modern furniture with a twist, bold colors and graphic patterns, playful accent lighting\nIndia Mahdavi, velvet-upholstered walls, terrazzo floors, domed ceilings, arched windows, candy-colored glass pendants, curvaceous custom furniture, pastel color blocking, soft glowing illumination\nTom Dixon, copper-clad walls, parquet floors, mirrored ceilings, warehouse windows, clustered metallic pendants, industrial-chic furniture, warm metallics with black accents, moody atmospheric lighting\nDavid Chipperfield, limestone walls, oak plank floors, planar ceilings, full-height sliding doors, recessed linear lighting, minimalist bespoke furniture, subdued earthy palette, carefully controlled natural light\nIlse Crawford, lime-washed walls, wide-plank pine floors, pitched ceilings, steel-framed windows, overscale paper lanterns, comfortable upholstered furniture, warm neutrals with tactile textures, cozy layered lighting\nAxel Vervoordt, raw plaster walls, antique stone floors, exposed beam ceilings, leaded glass windows, wrought iron candelabras, rustic furniture with Belgian linen, muted earth tones, soft candlelight ambiance\nKelly Hoppen, taupe-painted walls, silk carpet floors, tray ceilings, plantation shutters, crystal table lamps, clean-lined furniture with luxe fabrics, neutral palette with texture, sophisticated accent lighting\nPeter Marino, leather-paneled walls, rare wood floors, lacquered ceilings, bronze-framed windows, Art Deco-inspired sconces, sumptuous custom furniture, black and gold color scheme, dramatic contrasting light\nPiet Boon, lime-washed brick walls, concrete floors, steel beam ceilings, crittal windows, minimalist track lighting, understated luxury furniture, shades of gray with natural materials, diffused ambient light\nStudio KO, rammed earth walls, zellige tile floors, woven reed ceilings, keyhole windows, perforated brass pendants, low-slung modernist furniture, earthy color palette, warm glowing illumination\nVincent Van Duysen, Belgian linen walls, wide oak plank floors, plastered ceilings, steel-framed doors, minimalist cantilevered lights, austere wooden furniture, monochromatic neutrals, serene natural daylight\nYabu Pushelberg, fluted wood walls, honed stone floors, coffered ceilings, floor-to-ceiling drapes, sculptural floor lamps, sleek custom furniture, soft grays with subtle color accents, layered ambient lighting\nJoseph Dirand, veined marble walls, herringbone parquet floors, ornate molded ceilings, tall mirrors, alabaster sconces, modernist furniture with classical touches, monochrome with gold accents, elegant focused lighting\nCristina Celestino, pastel-hued walls, terrazzo floors, scalloped ceilings, arched doorways, retro-inspired table lamps, playful furniture with feminine curves, soft pastels with jewel tones, dreamy diffused light\nPierre Yovanovitch, oak-paneled walls, chevron wood floors, barrel-vaulted ceilings, circular windows, oversized ceramic pendants, sculptural furniture with curved forms, muted colors with pops of bright hues, warm ambient glow\nStudio Peregalli, frescoed walls, reclaimed terracotta floors, coffered wood ceilings, mullioned windows, antique chandeliers, eclectic mix of period furniture, rich jewel tones, atmospheric layered lighting\nDimore Studio, velvet-draped walls, inlaid wood floors, pressed tin ceilings, stained glass panels, vintage Murano glass lamps, eclectic mid-century furniture, moody dark colors, theatrical lighting effects\nFaye Toogood, chalk-textured walls, poured concrete floors, corrugated metal ceilings, skylight wells, paper lantern clusters, primitive-inspired furniture, chalky neutrals with natural materials, ethereal diffused daylight\nIlmari Tapiovaara, pine-clad walls, birch plank floors, exposed roof trusses, clerestory windows, Alvar Aalto pendants, organic modernist furniture, warm wood tones with black accents, soft northern light\nGert Voorjans, silk-upholstered walls, antique Persian rugs, gilded ceilings, tall sash windows, Venetian glass chandeliers, mix of antiques and modern pieces, rich jewel tones with patterns, dramatic accent lighting\nNeri&Hu, reclaimed brick walls, raw concrete floors, woven bamboo ceilings, steel-framed partitions, paper lantern pendants, minimal furniture with Asian influences, earthy neutrals with red accents, soft filtered light\nIndia Mahdavi, boldly patterned walls, colorful mosaic floors, gold-leafed ceilings, arched mirrors, blown glass chandeliers, curvaceous custom furniture, vibrant color blocking, playful ambient lighting\nShigeru Ban, paper tube walls, bamboo floors, tensile fabric ceilings, shoji screens, washi paper lamps, lightweight modular furniture, natural materials with white accents, soft diffused illumination\nMartyn Lawrence Bullard, exotic wallpapered walls, animal print rugs, lacquered ceilings, Moorish arched windows, Moroccan lanterns, glamorous Hollywood Regency furniture, bold patterns and colors, dramatic mood lighting\nLuca Nichetto, colorful resin walls, geometric tile floors, suspended acoustic panels, ribbon windows, modular lighting systems, playful contemporary furniture, primary colors with pastels, dynamic color-changing illumination"
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 206,
+      "type": "Text List",
+      "pos": {
+        "0": 230,
+        "1": 580
+      },
+      "size": {
+        "0": 210,
+        "1": 150
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 461,
+          "widget": {
+            "name": "text_a"
+          },
+          "shape": 7,
+          "label": "文本_A"
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 460,
+          "widget": {
+            "name": "text_b"
+          },
+          "shape": 7,
+          "label": "文本_B"
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          },
+          "shape": 7,
+          "label": "文本_C"
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          },
+          "shape": 7,
+          "label": "文本_D"
+        },
+        {
+          "name": "text_e",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_e"
+          },
+          "shape": 7,
+          "label": "文本_E"
+        },
+        {
+          "name": "text_f",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_f"
+          },
+          "shape": 7,
+          "label": "文本_F"
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_g"
+          },
+          "shape": 7,
+          "label": "文本_g"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LIST",
+          "type": "LIST",
+          "links": [
+            458
+          ],
+          "slot_index": 0,
+          "label": "列表"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text List"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 208,
+      "type": "Text Multiline",
+      "pos": {
+        "0": 180,
+        "1": 680
+      },
+      "size": [
+        320,
+        76
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            461
+          ],
+          "slot_index": 0,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "a small bedroom designed by"
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 210,
+      "type": "Note",
+      "pos": {
+        "0": -390,
+        "1": 850
+      },
+      "size": [
+        930,
+        340
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node: \nhttps://github.com/cubiq/ComfyUI_essentials\nhttps://github.com/city96/ComfyUI-GGUF\nhttps://github.com/WASasquatch/was-node-suite-comfyui\nhttps://github.com/Fannovel16/comfyui_controlnet_aux\nhttps://github.com/chflame163/ComfyUI_LayerStyle\n\nmodels:\n--FLUX.1--\nFLUX.1-dev-gguf：https://huggingface.co/city96/FLUX.1-dev-gguf\nT5GGUF：https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/blob/main/t5-v1_1-xxl-encoder-Q8_0.gguf\nViT-L-14-TEXT-detail-improved-hit:https://huggingface.co/zer0int/CLIP-GmP-ViT-L-14/blob/main/ViT-L-14-TEXT-detail-improved-hiT-GmP-TE-only-HF.safetensors\nFlux.1 VAE：https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main\n--controlnet--\nInstantX/FLUX.1-dev-Controlnet-Union：https://huggingface.co/InstantX/FLUX.1-dev-Controlnet-Union/tree/main\n--models\\upscale_models--\n4xRealWebPhoto_v4_dat2：https://github.com/Phhofm/models/releases/download/4xRealWebPhoto_v4_dat2/4xRealWebPhoto_v4_dat2.pth\n--ComfyUI/models/clip--\nhttps://huggingface.co/QuanSun/EVA-CLIP/blob/main/EVA02_CLIP_L_336_psz14_s6B.pt?download=true\n--lora--\nHyper-FLUX.1-dev-16steps-lora：https://huggingface.co/ByteDance/Hyper-SD/blob/main/Hyper-FLUX.1-dev-16steps-lora.safetensors\nHyper-FLUX.1-dev-8steps-lora：https://huggingface.co/ByteDance/Hyper-SD/blob/main/Hyper-FLUX.1-dev-8steps-lora.safetensors\n\ncloud:\nWorkflows:https://pan.quark.cn/s/e76d9e972e8c\nmodels:https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node: https://pan.quark.cn/s/16dca69ca023\n\nVideos:\nbilibili:https://space.bilibili.com/473724003\nYouTube:https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 213,
+      "type": "ImageScaleBy",
+      "pos": {
+        "0": 580,
+        "1": 820
+      },
+      "size": [
+        250,
+        80
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 505,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            476,
+            479
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleBy"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        0.5
+      ]
+    },
+    {
+      "id": 214,
+      "type": "LayerUtility: GetImageSize",
+      "pos": {
+        "0": 610,
+        "1": 970
+      },
+      "size": {
+        "0": 240,
+        "1": 70
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 476,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            477
+          ],
+          "slot_index": 0,
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            478
+          ],
+          "slot_index": 1,
+          "label": "高度"
+        },
+        {
+          "name": "original_size",
+          "type": "BOX",
+          "links": null,
+          "label": "原始大小"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: GetImageSize"
+      },
+      "widgets_values": [],
+      "color": "rgba(38, 73, 116, 0.7)"
+    }
+  ],
+  "links": [
+    [
+      303,
+      144,
+      0,
+      147,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      309,
+      133,
+      0,
+      147,
+      1,
+      "IMAGE"
+    ],
+    [
+      318,
+      130,
+      0,
+      133,
+      1,
+      "VAE"
+    ],
+    [
+      319,
+      130,
+      0,
+      149,
+      1,
+      "VAE"
+    ],
+    [
+      322,
+      130,
+      0,
+      150,
+      1,
+      "VAE"
+    ],
+    [
+      323,
+      133,
+      0,
+      151,
+      0,
+      "IMAGE"
+    ],
+    [
+      357,
+      129,
+      0,
+      163,
+      0,
+      "CLIP"
+    ],
+    [
+      359,
+      129,
+      0,
+      164,
+      0,
+      "CLIP"
+    ],
+    [
+      361,
+      165,
+      0,
+      166,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      364,
+      163,
+      0,
+      165,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      367,
+      62,
+      0,
+      166,
+      3,
+      "IMAGE"
+    ],
+    [
+      368,
+      35,
+      0,
+      165,
+      3,
+      "IMAGE"
+    ],
+    [
+      369,
+      130,
+      0,
+      165,
+      4,
+      "VAE"
+    ],
+    [
+      370,
+      130,
+      0,
+      166,
+      4,
+      "VAE"
+    ],
+    [
+      372,
+      164,
+      0,
+      165,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      373,
+      165,
+      1,
+      166,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      376,
+      43,
+      0,
+      168,
+      0,
+      "IMAGE"
+    ],
+    [
+      384,
+      169,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      385,
+      169,
+      0,
+      62,
+      0,
+      "IMAGE"
+    ],
+    [
+      415,
+      149,
+      0,
+      184,
+      0,
+      "IMAGE"
+    ],
+    [
+      420,
+      166,
+      1,
+      185,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      421,
+      185,
+      0,
+      133,
+      0,
+      "LATENT"
+    ],
+    [
+      422,
+      37,
+      0,
+      185,
+      3,
+      "LATENT"
+    ],
+    [
+      427,
+      190,
+      0,
+      149,
+      0,
+      "LATENT"
+    ],
+    [
+      430,
+      150,
+      0,
+      190,
+      3,
+      "LATENT"
+    ],
+    [
+      431,
+      193,
+      0,
+      190,
+      0,
+      "MODEL"
+    ],
+    [
+      432,
+      189,
+      0,
+      193,
+      0,
+      "MODEL"
+    ],
+    [
+      439,
+      164,
+      0,
+      190,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      441,
+      195,
+      0,
+      190,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      442,
+      163,
+      0,
+      195,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      446,
+      188,
+      0,
+      185,
+      0,
+      "MODEL"
+    ],
+    [
+      449,
+      187,
+      0,
+      188,
+      0,
+      "MODEL"
+    ],
+    [
+      450,
+      166,
+      0,
+      186,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      451,
+      186,
+      0,
+      185,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      457,
+      205,
+      0,
+      199,
+      0,
+      "STRING"
+    ],
+    [
+      458,
+      206,
+      0,
+      204,
+      0,
+      "LIST"
+    ],
+    [
+      459,
+      204,
+      0,
+      163,
+      1,
+      "STRING"
+    ],
+    [
+      460,
+      199,
+      0,
+      206,
+      1,
+      "STRING"
+    ],
+    [
+      461,
+      208,
+      0,
+      206,
+      0,
+      "STRING"
+    ],
+    [
+      464,
+      197,
+      0,
+      189,
+      0,
+      "MODEL"
+    ],
+    [
+      476,
+      213,
+      0,
+      214,
+      0,
+      "IMAGE"
+    ],
+    [
+      477,
+      214,
+      0,
+      193,
+      1,
+      "INT"
+    ],
+    [
+      478,
+      214,
+      1,
+      193,
+      2,
+      "INT"
+    ],
+    [
+      479,
+      213,
+      0,
+      150,
+      0,
+      "IMAGE"
+    ],
+    [
+      481,
+      168,
+      1,
+      38,
+      1,
+      "INT"
+    ],
+    [
+      482,
+      168,
+      2,
+      38,
+      2,
+      "INT"
+    ],
+    [
+      483,
+      38,
+      0,
+      35,
+      1,
+      "INT"
+    ],
+    [
+      484,
+      38,
+      0,
+      62,
+      1,
+      "INT"
+    ],
+    [
+      485,
+      168,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      489,
+      168,
+      1,
+      37,
+      0,
+      "INT"
+    ],
+    [
+      490,
+      168,
+      2,
+      37,
+      1,
+      "INT"
+    ],
+    [
+      491,
+      168,
+      1,
+      188,
+      1,
+      "INT"
+    ],
+    [
+      492,
+      168,
+      2,
+      188,
+      2,
+      "INT"
+    ],
+    [
+      501,
+      136,
+      0,
+      165,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      502,
+      136,
+      0,
+      166,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      504,
+      197,
+      0,
+      187,
+      0,
+      "MODEL"
+    ],
+    [
+      505,
+      147,
+      0,
+      213,
+      0,
+      "IMAGE"
+    ],
+    [
+      506,
+      168,
+      0,
+      169,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Room Photo",
+      "bounding": [
+        -380,
+        -290,
+        910,
+        670
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "HiresFix",
+      "bounding": [
+        550,
+        500,
+        1820,
+        700
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "RandomPrompt",
+      "bounding": [
+        -380,
+        390,
+        910,
+        420
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "flux sampling",
+      "bounding": [
+        550,
+        -290,
+        1820,
+        784
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0834705943388394,
+      "offset": [
+        784.5170367993561,
+        -81.70005019230116
+      ]
+    }
+  },
+  "version": 0.4
+}

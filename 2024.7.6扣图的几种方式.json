@@ -1,0 +1,2184 @@
+{
+  "last_node_id": 161,
+  "last_link_id": 251,
+  "nodes": [
+    {
+      "id": 85,
+      "type": "GroundingDinoModelLoader (segment anything)",
+      "pos": [
+        590,
+        2980
+      ],
+      "size": {
+        "0": 360,
+        "1": 60
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "GROUNDING_DINO_MODEL",
+          "type": "GROUNDING_DINO_MODEL",
+          "links": [
+            123
+          ],
+          "shape": 3,
+          "label": "G-Dino模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GroundingDinoModelLoader (segment anything)"
+      },
+      "widgets_values": [
+        "GroundingDINO_SwinB (938MB)"
+      ]
+    },
+    {
+      "id": 88,
+      "type": "InvertMask",
+      "pos": [
+        970,
+        2850
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 125,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            210
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 132,
+      "type": "Anything Everywhere",
+      "pos": [
+        -60,
+        2250
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "*",
+          "link": 213,
+          "label": "输入",
+          "color_on": "#64B5F6"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 133,
+      "type": "Anything Everywhere",
+      "pos": [
+        430,
+        2230
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "*",
+          "link": 214,
+          "label": "输入",
+          "color_on": "#7CBB1A"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 110,
+      "type": "InvertMask",
+      "pos": [
+        -150,
+        3200
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 163,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            211
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 83,
+      "type": "GroundingDinoSAMSegment (segment anything)",
+      "pos": [
+        970,
+        2920
+      ],
+      "size": {
+        "0": 210,
+        "1": 120
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "sam_model",
+          "type": "SAM_MODEL",
+          "link": 122,
+          "label": "SAM模型",
+          "slot_index": 0
+        },
+        {
+          "name": "grounding_dino_model",
+          "type": "GROUNDING_DINO_MODEL",
+          "link": 123,
+          "label": "G-Dino模型",
+          "slot_index": 1
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像"
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "prompt"
+          },
+          "label": "提示词"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "label": " 图像",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            125
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GroundingDinoSAMSegment (segment anything)"
+      },
+      "widgets_values": [
+        "The product in the picture",
+        0.3
+      ]
+    },
+    {
+      "id": 117,
+      "type": "MaskSmooth+",
+      "pos": [
+        1220,
+        2990
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 188,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            189
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskSmooth+"
+      },
+      "widgets_values": [
+        20
+      ]
+    },
+    {
+      "id": 89,
+      "type": "InvertMask",
+      "pos": [
+        1370,
+        2850
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 30,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 189,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            209
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 87,
+      "type": "ImageToMask",
+      "pos": [
+        1290,
+        2920
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 124,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            188
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToMask"
+      },
+      "widgets_values": [
+        "alpha"
+      ]
+    },
+    {
+      "id": 124,
+      "type": "easy imageSize",
+      "pos": [
+        590,
+        3140
+      ],
+      "size": {
+        "0": 210,
+        "1": 100
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width_int",
+          "type": "INT",
+          "links": [
+            195
+          ],
+          "shape": 3,
+          "label": "宽度",
+          "slot_index": 0
+        },
+        {
+          "name": "height_int",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "高度"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy imageSize"
+      },
+      "widgets_values": [
+        "Width: 1920 , Height: 1080"
+      ]
+    },
+    {
+      "id": 93,
+      "type": "InvertMask",
+      "pos": [
+        590,
+        3280
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 29,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 129,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            130
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 94,
+      "type": "MaskToImage",
+      "pos": [
+        710,
+        3280
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 33,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 130,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            128
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      }
+    },
+    {
+      "id": 92,
+      "type": "Blur",
+      "pos": [
+        860,
+        3150
+      ],
+      "size": {
+        "0": 210,
+        "1": 100
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 128,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            131
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Blur"
+      },
+      "widgets_values": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 95,
+      "type": "Image To Mask",
+      "pos": [
+        1080,
+        3150
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 35,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 131,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            202
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image To Mask"
+      },
+      "widgets_values": [
+        "alpha"
+      ]
+    },
+    {
+      "id": 98,
+      "type": "ToBinaryMask",
+      "pos": [
+        1300,
+        3140
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 202,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            208
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ToBinaryMask"
+      },
+      "widgets_values": [
+        10
+      ]
+    },
+    {
+      "id": 137,
+      "type": "BiRefNet_Zho",
+      "pos": [
+        150,
+        3370
+      ],
+      "size": {
+        "0": 240,
+        "1": 50
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "birefnetmodel",
+          "type": "BRNMODEL",
+          "link": 217,
+          "label": "birefnetmodel"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "image",
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "label": "image",
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            224
+          ],
+          "shape": 3,
+          "label": "mask",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BiRefNet_Zho"
+      }
+    },
+    {
+      "id": 142,
+      "type": "InvertMask",
+      "pos": [
+        400,
+        3380
+      ],
+      "size": {
+        "0": 140,
+        "1": 40
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 224,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            226
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 136,
+      "type": "BiRefNet_ModelLoader_Zho",
+      "pos": [
+        -180,
+        3370
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "birefnetmodel",
+          "type": "BRNMODEL",
+          "links": [
+            217
+          ],
+          "shape": 3,
+          "label": "birefnetmodel",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BiRefNet_ModelLoader_Zho"
+      },
+      "widgets_values": [
+        "BiRefNet-DIS_ep580.pth"
+      ]
+    },
+    {
+      "id": 134,
+      "type": "Note",
+      "pos": [
+        -460,
+        2840
+      ],
+      "size": {
+        "0": 240,
+        "1": 70
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "1组和2组是根据关键词来识别抠图的\n请注意关键词"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 129,
+      "type": "Any Switch (rgthree)",
+      "pos": {
+        "0": 650,
+        "1": 2220,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 360,
+        "1": 110
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_01",
+          "type": "MASK",
+          "link": 211,
+          "label": "输入_01",
+          "dir": 3
+        },
+        {
+          "name": "any_02",
+          "type": "MASK",
+          "link": 210,
+          "label": "输入_02",
+          "dir": 3
+        },
+        {
+          "name": "any_03",
+          "type": "MASK",
+          "link": 209,
+          "label": "输入_03",
+          "dir": 3
+        },
+        {
+          "name": "any_04",
+          "type": "MASK",
+          "link": 208,
+          "label": "输入_04",
+          "dir": 3
+        },
+        {
+          "name": "any_05",
+          "type": "MASK",
+          "link": 226,
+          "label": "输入_05",
+          "dir": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MASK",
+          "links": [
+            234
+          ],
+          "shape": 3,
+          "label": "MASK",
+          "dir": 4,
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 148,
+      "type": "InvertMask",
+      "pos": [
+        770,
+        3380
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 238,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            239
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 146,
+      "type": "Any Switch (rgthree)",
+      "pos": {
+        "0": 900,
+        "1": 2400,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 360,
+        "1": 110
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_01",
+          "type": "MASK",
+          "link": 234,
+          "label": "输入_01",
+          "dir": 3
+        },
+        {
+          "name": "any_02",
+          "type": "MASK",
+          "link": 239,
+          "label": "输入_02",
+          "dir": 3
+        },
+        {
+          "name": "any_03",
+          "type": "MASK",
+          "link": 243,
+          "label": "输入_03",
+          "dir": 3
+        },
+        {
+          "name": "any_04",
+          "type": "MASK",
+          "link": null,
+          "label": "输入_04",
+          "dir": 3
+        },
+        {
+          "name": "any_05",
+          "type": "MASK",
+          "link": null,
+          "label": "输入_05",
+          "dir": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MASK",
+          "links": [
+            235
+          ],
+          "shape": 3,
+          "label": "MASK",
+          "dir": 4,
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 152,
+      "type": "InvertMask",
+      "pos": [
+        1300,
+        3450
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 242,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            243
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask"
+      }
+    },
+    {
+      "id": 153,
+      "type": "Note",
+      "pos": [
+        640,
+        3620
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "6和7直接输出图像质量会好一些"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 86,
+      "type": "Image Remove Background (rembg)",
+      "pos": [
+        1210,
+        2840
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            124
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Remove Background (rembg)"
+      },
+      "widgets_values": [
+        "u2net"
+      ]
+    },
+    {
+      "id": 90,
+      "type": "OneFormer-ADE20K-SemSegPreprocessor",
+      "pos": [
+        590,
+        3240
+      ],
+      "size": {
+        "0": 220,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像"
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": 195,
+          "widget": {
+            "name": "resolution"
+          },
+          "label": "分辨率",
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            127
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OneFormer-ADE20K-SemSegPreprocessor"
+      },
+      "widgets_values": [
+        512
+      ]
+    },
+    {
+      "id": 91,
+      "type": "ImageColorToMask",
+      "pos": [
+        590,
+        3140
+      ],
+      "size": {
+        "0": 220,
+        "1": 60
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 127,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            129
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageColorToMask"
+      },
+      "widgets_values": [
+        9831741
+      ]
+    },
+    {
+      "id": 84,
+      "type": "SAMLoader",
+      "pos": [
+        590,
+        2850
+      ],
+      "size": {
+        "0": 360,
+        "1": 80
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            122
+          ],
+          "shape": 3,
+          "label": "SAM模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SAMLoader"
+      },
+      "widgets_values": [
+        "sam_vit_h_4b8939.pth",
+        "Prefer GPU"
+      ]
+    },
+    {
+      "id": 143,
+      "type": "LayerMask: RmBgUltra V2",
+      "pos": [
+        600,
+        3370
+      ],
+      "size": {
+        "0": 320,
+        "1": 200
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            238
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerMask: RmBgUltra V2"
+      },
+      "widgets_values": [
+        "VITMatte(local)",
+        6,
+        6,
+        0.01,
+        0.99,
+        true
+      ]
+    },
+    {
+      "id": 62,
+      "type": "Yoloworld_ModelLoader_Zho",
+      "pos": [
+        -160,
+        2840
+      ],
+      "size": {
+        "0": 300,
+        "1": 60
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "yolo_world_model",
+          "type": "YOLOWORLDMODEL",
+          "links": [
+            85
+          ],
+          "shape": 3,
+          "label": "yolo_world_model",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Yoloworld_ModelLoader_Zho"
+      },
+      "widgets_values": [
+        "yolo_world/l"
+      ]
+    },
+    {
+      "id": 63,
+      "type": "ESAM_ModelLoader_Zho",
+      "pos": [
+        -160,
+        2930
+      ],
+      "size": {
+        "0": 300,
+        "1": 60
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "outputs": [
+        {
+          "name": "esam_model",
+          "type": "ESAMMODEL",
+          "links": [
+            86
+          ],
+          "shape": 3,
+          "label": "esam_model",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ESAM_ModelLoader_Zho"
+      },
+      "widgets_values": [
+        "CUDA"
+      ]
+    },
+    {
+      "id": 154,
+      "type": "MaskPreview+",
+      "pos": [
+        -170,
+        3030
+      ],
+      "size": {
+        "0": 210,
+        "1": 250
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 244,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskPreview+"
+      }
+    },
+    {
+      "id": 61,
+      "type": "Yoloworld_ESAM_Zho",
+      "pos": [
+        160,
+        2870
+      ],
+      "size": {
+        "0": 400,
+        "1": 400
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "yolo_world_model",
+          "type": "YOLOWORLDMODEL",
+          "link": 85,
+          "slot_index": 0,
+          "label": "yolo_world_model"
+        },
+        {
+          "name": "esam_model",
+          "type": "ESAMMODEL",
+          "link": 86,
+          "slot_index": 1,
+          "label": "esam_model"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "image"
+        },
+        {
+          "name": "categories",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "categories"
+          },
+          "label": "categories"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            98
+          ],
+          "shape": 3,
+          "slot_index": 1,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Yoloworld_ESAM_Zho"
+      },
+      "widgets_values": [
+        "face, ",
+        0.03,
+        0.2,
+        2,
+        2,
+        1,
+        true,
+        false,
+        true,
+        true,
+        true,
+        0
+      ]
+    },
+    {
+      "id": 69,
+      "type": "GrowMask",
+      "pos": [
+        -30,
+        3010
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 98,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            163,
+            244
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GrowMask"
+      },
+      "widgets_values": [
+        2,
+        false
+      ]
+    },
+    {
+      "id": 151,
+      "type": "PreviewImage",
+      "pos": [
+        1300,
+        3370
+      ],
+      "size": {
+        "0": 210,
+        "1": 250
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 241,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 80,
+      "type": "TransparentImage",
+      "pos": [
+        650,
+        2370
+      ],
+      "size": {
+        "0": 360,
+        "1": 370
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像"
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "link": 235,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file_path",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            233
+          ],
+          "shape": 6,
+          "label": "图像",
+          "slot_index": 1
+        },
+        {
+          "name": "RGBA",
+          "type": "RGBA",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TransparentImage"
+      },
+      "widgets_values": [
+        "no",
+        "no",
+        "Mixlab_save"
+      ]
+    },
+    {
+      "id": 82,
+      "type": "PreviewImage",
+      "pos": [
+        1040,
+        2220
+      ],
+      "size": {
+        "0": 470,
+        "1": 480
+      },
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 233,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 106,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": {
+        "0": 160,
+        "1": 2480,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 420,
+        "1": 270
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": [],
+          "label": "可选连接",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#346434"
+    },
+    {
+      "id": 59,
+      "type": "LoadImage",
+      "pos": [
+        -170,
+        2210
+      ],
+      "size": {
+        "0": 320,
+        "1": 480
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            213
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "c2 (1) (1).jpg",
+        "image"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 150,
+      "type": "LayerMask: SegmentAnythingUltra V2",
+      "pos": [
+        970,
+        3370
+      ],
+      "size": {
+        "0": 320,
+        "1": 290
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "prompt"
+          },
+          "label": "提示词",
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            241
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            242
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerMask: SegmentAnythingUltra V2"
+      },
+      "widgets_values": [
+        "sam_vit_h (2.56GB)",
+        "GroundingDINO_SwinB (938MB)",
+        0.3,
+        "VITMatte(local)",
+        6,
+        6,
+        0.15,
+        0.99,
+        true,
+        "subject"
+      ]
+    },
+    {
+      "id": 103,
+      "type": "ChinesePrompt_Mix",
+      "pos": [
+        160,
+        2210
+      ],
+      "size": {
+        "0": 420,
+        "1": 240
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            214
+          ],
+          "shape": 6,
+          "label": "提示词",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ChinesePrompt_Mix"
+      },
+      "widgets_values": [
+        "",
+        "off",
+        901959,
+        "randomize"
+      ]
+    }
+  ],
+  "links": [
+    [
+      85,
+      62,
+      0,
+      61,
+      0,
+      "YOLOWORLDMODEL"
+    ],
+    [
+      86,
+      63,
+      0,
+      61,
+      1,
+      "ESAMMODEL"
+    ],
+    [
+      98,
+      61,
+      1,
+      69,
+      0,
+      "MASK"
+    ],
+    [
+      122,
+      84,
+      0,
+      83,
+      0,
+      "SAM_MODEL"
+    ],
+    [
+      123,
+      85,
+      0,
+      83,
+      1,
+      "GROUNDING_DINO_MODEL"
+    ],
+    [
+      124,
+      86,
+      0,
+      87,
+      0,
+      "IMAGE"
+    ],
+    [
+      125,
+      83,
+      1,
+      88,
+      0,
+      "MASK"
+    ],
+    [
+      127,
+      90,
+      0,
+      91,
+      0,
+      "IMAGE"
+    ],
+    [
+      128,
+      94,
+      0,
+      92,
+      0,
+      "IMAGE"
+    ],
+    [
+      129,
+      91,
+      0,
+      93,
+      0,
+      "MASK"
+    ],
+    [
+      130,
+      93,
+      0,
+      94,
+      0,
+      "MASK"
+    ],
+    [
+      131,
+      92,
+      0,
+      95,
+      0,
+      "IMAGE"
+    ],
+    [
+      163,
+      69,
+      0,
+      110,
+      0,
+      "MASK"
+    ],
+    [
+      188,
+      87,
+      0,
+      117,
+      0,
+      "MASK"
+    ],
+    [
+      189,
+      117,
+      0,
+      89,
+      0,
+      "MASK"
+    ],
+    [
+      195,
+      124,
+      0,
+      90,
+      1,
+      "INT"
+    ],
+    [
+      202,
+      95,
+      0,
+      98,
+      0,
+      "MASK"
+    ],
+    [
+      208,
+      98,
+      0,
+      129,
+      3,
+      "*"
+    ],
+    [
+      209,
+      89,
+      0,
+      129,
+      2,
+      "MASK"
+    ],
+    [
+      210,
+      88,
+      0,
+      129,
+      1,
+      "MASK"
+    ],
+    [
+      211,
+      110,
+      0,
+      129,
+      0,
+      "MASK"
+    ],
+    [
+      213,
+      59,
+      0,
+      132,
+      0,
+      "IMAGE"
+    ],
+    [
+      214,
+      103,
+      0,
+      133,
+      0,
+      "STRING"
+    ],
+    [
+      217,
+      136,
+      0,
+      137,
+      0,
+      "BRNMODEL"
+    ],
+    [
+      224,
+      137,
+      1,
+      142,
+      0,
+      "MASK"
+    ],
+    [
+      226,
+      142,
+      0,
+      129,
+      4,
+      "MASK"
+    ],
+    [
+      233,
+      80,
+      1,
+      82,
+      0,
+      "IMAGE"
+    ],
+    [
+      234,
+      129,
+      0,
+      146,
+      0,
+      "*"
+    ],
+    [
+      235,
+      146,
+      0,
+      80,
+      1,
+      "MASK"
+    ],
+    [
+      238,
+      143,
+      1,
+      148,
+      0,
+      "MASK"
+    ],
+    [
+      239,
+      148,
+      0,
+      146,
+      1,
+      "MASK"
+    ],
+    [
+      241,
+      150,
+      0,
+      151,
+      0,
+      "IMAGE"
+    ],
+    [
+      242,
+      150,
+      1,
+      152,
+      0,
+      "MASK"
+    ],
+    [
+      243,
+      152,
+      0,
+      146,
+      2,
+      "MASK"
+    ],
+    [
+      244,
+      69,
+      0,
+      154,
+      0,
+      "MASK"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Group 1",
+      "bounding": [
+        -190,
+        2770,
+        760,
+        520
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 0 主控",
+      "bounding": [
+        -190,
+        2140,
+        820,
+        620
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 2",
+      "bounding": [
+        580,
+        2770,
+        610,
+        290
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 3",
+      "bounding": [
+        1200,
+        2770,
+        320,
+        290
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 4",
+      "bounding": [
+        580,
+        3070,
+        940,
+        220
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 成品",
+      "bounding": [
+        640,
+        2140,
+        880,
+        620
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 5",
+      "bounding": [
+        -190,
+        3300,
+        760,
+        130
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 6",
+      "bounding": [
+        580,
+        3300,
+        350,
+        280
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Group 7",
+      "bounding": [
+        940,
+        3300,
+        590,
+        370
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "workspace_info": {
+      "id": "kOiL-99EVdz48avTr_scu"
+    },
+    "ds": {
+      "scale": 0.7247295000000004,
+      "offset": {
+        "0": 456.944235488024,
+        "1": -2173.979422464106
+      }
+    }
+  },
+  "version": 0.4
+}

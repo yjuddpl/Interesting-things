@@ -1,0 +1,1583 @@
+{
+  "last_node_id": 39,
+  "last_link_id": 49,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "VAEDecode",
+      "pos": [
+        2046.25,
+        555
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 5,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            38
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 11,
+      "type": "ACN_ControlNet++LoaderAdvanced",
+      "pos": [
+        550,
+        240
+      ],
+      "size": {
+        "0": 450,
+        "1": 80
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "plus_input",
+          "type": "PLUS_INPUT",
+          "link": 13,
+          "label": "ControlNet++输入组",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "label": "ControlNet"
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ACN_ControlNet++LoaderAdvanced"
+      },
+      "widgets_values": [
+        "controlnet-union-sdxl-1.0\\diffusion_pytorch_model_promax.safetensors"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "ACN_ControlNet++InputNode",
+      "pos": [
+        240,
+        230
+      ],
+      "size": {
+        "0": 240,
+        "1": 80
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 15,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "prev_plus_input",
+          "type": "PLUS_INPUT",
+          "link": null,
+          "label": "前输入组"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "PLUS_INPUT",
+          "type": "PLUS_INPUT",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "label": "ControlNet++输入组"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ACN_ControlNet++InputNode"
+      },
+      "widgets_values": [
+        "inpaint/outpaint",
+        ""
+      ]
+    },
+    {
+      "id": 14,
+      "type": "LayerUtility: ImageRemoveAlpha",
+      "pos": [
+        -160,
+        230
+      ],
+      "size": {
+        "0": 320,
+        "1": 100
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "RGBA_image",
+          "type": "IMAGE",
+          "link": 16,
+          "label": "RGBA图像"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "RGB_image",
+          "type": "IMAGE",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "label": "RGB图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: ImageRemoveAlpha"
+      },
+      "widgets_values": [
+        false,
+        "#000000"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "InpaintPreprocessor",
+      "pos": [
+        -380,
+        230
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 22,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            16
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InpaintPreprocessor"
+      }
+    },
+    {
+      "id": 15,
+      "type": "LoadImage",
+      "pos": [
+        -1260,
+        190
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19,
+            25
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-20480580.2.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "PreviewImage",
+      "pos": [
+        -1410,
+        810
+      ],
+      "size": {
+        "0": 350,
+        "1": 490
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 25,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        580,
+        460
+      ],
+      "size": {
+        "0": 320,
+        "1": 100
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "label": "VAE",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "0XL\\Turbo_RealitiesEdgeXLLIGHTNING_TURBOV7.safetensors"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "KSampler",
+      "pos": [
+        1560,
+        360
+      ],
+      "size": [
+        320,
+        470
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1,
+          "label": "模型",
+          "slot_index": 0
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 7,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 8,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 4,
+          "label": "Latent",
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "label": "Latent",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        726765202933710,
+        "randomize",
+        8,
+        2.5,
+        "dpmpp_sde",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1570,
+        930
+      ],
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 23,
+          "widget": {
+            "name": "width"
+          },
+          "label": "宽度"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 24,
+          "widget": {
+            "name": "height"
+          },
+          "label": "高度"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 33,
+      "type": "SixGodPrompts",
+      "pos": [
+        150,
+        -170
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip",
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 39,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "CONDITIONING"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            41
+          ],
+          "shape": 3,
+          "label": "STRING",
+          "slot_index": 1
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SixGodPrompts"
+      },
+      "widgets_values": [
+        "#[gym_uniform,athletic_leotard,volleyball_uniform,tennis_uniform,baseball_uniform,letterman_jacket,volleyball_uniform,bikesuit,swimsuit,school_swimsuit,competition_swimsuit,casual_one-piece_swimsuit,highleg_swimsuit,one-piece_swimsuit,bikini,micro_bikini,maid_bikini,sailor_bikini,shell_bikini,sports_bikini,string_bikini,blouse,collared_shirt,sailor_shirt,t-shirt,tank_top,vest,casual,hoodie,homewear,pajamas,print_pajamas,polka_dot_pajamas,blazer,overcoat,fur_coat,jacket,leather_jacket,denim_jacket,sweater,turtleneck_sweater,ribbed_sweater,sweater_vest,backless_sweater,beige_sweater,brown_sweater,hooded_sweater,off-shoulder_sweater,ribbed_sweater,striped_sweater,virgin_killer_sweater,puffer_jacket,raincoat,dress,long_dress,off-shoulder_dress,sweater_dress,summer_dress,skirt,microskirt,miniskirt, layered skirts,pleated_skirt,pencil_skirt,bubble_skirt,tutu,taut_dress,pencil_dress,denim_skirt,chiffon_skirt,frilled_skirt,fur-trimmed_skirt,lace_skirt,ribbon-trimmed_skirt,shorts,striped_shorts,suspender_shorts,denim_shorts,yoga_pants,jeans,capri_pants,bloomers,business_suit,school_uniform,serafuku,nurse,police_uniform,naval_uniform,military_uniform,maid,apron,chef_uniform,space_suit,labcoat,cheerleader,tuxedo,evening_gown,wedding_dress,miko,nun_cloth,bunny_costume,cat_costume,dog_costume,bear_costume,santa_costume,armor,bikini_armor,full_armor,plate_armor,japanese_armor,power_armor,mecha,helmet,kabuto,off-shoulder_armor,shoulder_armor,muneate,breastplate,faulds,shin_guards,armored_boots,Taoist robe,robe,robe_of_blending,cloak,hagoromo],",
+        452001056671991,
+        "randomize"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "SixGodPrompts",
+      "pos": [
+        150,
+        -200
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip",
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 45,
+          "widget": {
+            "name": "text"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "CONDITIONING"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "label": "STRING",
+          "slot_index": 1
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SixGodPrompts"
+      },
+      "widgets_values": [
+        "#[gym_uniform,athletic_leotard,volleyball_uniform,tennis_uniform,baseball_uniform,letterman_jacket,volleyball_uniform,bikesuit,swimsuit,school_swimsuit,competition_swimsuit,casual_one-piece_swimsuit,highleg_swimsuit,one-piece_swimsuit,bikini,micro_bikini,maid_bikini,sailor_bikini,shell_bikini,sports_bikini,string_bikini,blouse,collared_shirt,sailor_shirt,t-shirt,tank_top,vest,casual,hoodie,homewear,pajamas,print_pajamas,polka_dot_pajamas,blazer,overcoat,fur_coat,jacket,leather_jacket,denim_jacket,sweater,turtleneck_sweater,ribbed_sweater,sweater_vest,backless_sweater,beige_sweater,brown_sweater,hooded_sweater,off-shoulder_sweater,ribbed_sweater,striped_sweater,virgin_killer_sweater,puffer_jacket,raincoat,dress,long_dress,off-shoulder_dress,sweater_dress,summer_dress,skirt,microskirt,miniskirt, layered skirts,pleated_skirt,pencil_skirt,bubble_skirt,tutu,taut_dress,pencil_dress,denim_skirt,chiffon_skirt,frilled_skirt,fur-trimmed_skirt,lace_skirt,ribbon-trimmed_skirt,shorts,striped_shorts,suspender_shorts,denim_shorts,yoga_pants,jeans,capri_pants,bloomers,business_suit,school_uniform,serafuku,nurse,police_uniform,naval_uniform,military_uniform,maid,apron,chef_uniform,space_suit,labcoat,cheerleader,tuxedo,evening_gown,wedding_dress,miko,nun_cloth,bunny_costume,cat_costume,dog_costume,bear_costume,santa_costume,armor,bikini_armor,full_armor,plate_armor,japanese_armor,power_armor,mecha,helmet,kabuto,off-shoulder_armor,shoulder_armor,muneate,breastplate,faulds,shin_guards,armored_boots,Taoist robe,robe,robe_of_blending,cloak,hagoromo],",
+        399837376322249,
+        "randomize"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "SixGodPrompts",
+      "pos": [
+        150,
+        -140
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip",
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 46,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "CONDITIONING"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "label": "STRING",
+          "slot_index": 1
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SixGodPrompts"
+      },
+      "widgets_values": [
+        "#[gym_uniform,athletic_leotard,volleyball_uniform,tennis_uniform,baseball_uniform,letterman_jacket,volleyball_uniform,bikesuit,swimsuit,school_swimsuit,competition_swimsuit,casual_one-piece_swimsuit,highleg_swimsuit,one-piece_swimsuit,bikini,micro_bikini,maid_bikini,sailor_bikini,shell_bikini,sports_bikini,string_bikini,blouse,collared_shirt,sailor_shirt,t-shirt,tank_top,vest,casual,hoodie,homewear,pajamas,print_pajamas,polka_dot_pajamas,blazer,overcoat,fur_coat,jacket,leather_jacket,denim_jacket,sweater,turtleneck_sweater,ribbed_sweater,sweater_vest,backless_sweater,beige_sweater,brown_sweater,hooded_sweater,off-shoulder_sweater,ribbed_sweater,striped_sweater,virgin_killer_sweater,puffer_jacket,raincoat,dress,long_dress,off-shoulder_dress,sweater_dress,summer_dress,skirt,microskirt,miniskirt, layered skirts,pleated_skirt,pencil_skirt,bubble_skirt,tutu,taut_dress,pencil_dress,denim_skirt,chiffon_skirt,frilled_skirt,fur-trimmed_skirt,lace_skirt,ribbon-trimmed_skirt,shorts,striped_shorts,suspender_shorts,denim_shorts,yoga_pants,jeans,capri_pants,bloomers,business_suit,school_uniform,serafuku,nurse,police_uniform,naval_uniform,military_uniform,maid,apron,chef_uniform,space_suit,labcoat,cheerleader,tuxedo,evening_gown,wedding_dress,miko,nun_cloth,bunny_costume,cat_costume,dog_costume,bear_costume,santa_costume,armor,bikini_armor,full_armor,plate_armor,japanese_armor,power_armor,mecha,helmet,kabuto,off-shoulder_armor,shoulder_armor,muneate,breastplate,faulds,shin_guards,armored_boots,Taoist robe,robe,robe_of_blending,cloak,hagoromo],",
+        699546373526775,
+        "randomize"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "SixGodPrompts",
+      "pos": [
+        150,
+        -100
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip",
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 47,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "CONDITIONING"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "label": "STRING",
+          "slot_index": 1
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SixGodPrompts"
+      },
+      "widgets_values": [
+        "#[gym_uniform,athletic_leotard,volleyball_uniform,tennis_uniform,baseball_uniform,letterman_jacket,volleyball_uniform,bikesuit,swimsuit,school_swimsuit,competition_swimsuit,casual_one-piece_swimsuit,highleg_swimsuit,one-piece_swimsuit,bikini,micro_bikini,maid_bikini,sailor_bikini,shell_bikini,sports_bikini,string_bikini,blouse,collared_shirt,sailor_shirt,t-shirt,tank_top,vest,casual,hoodie,homewear,pajamas,print_pajamas,polka_dot_pajamas,blazer,overcoat,fur_coat,jacket,leather_jacket,denim_jacket,sweater,turtleneck_sweater,ribbed_sweater,sweater_vest,backless_sweater,beige_sweater,brown_sweater,hooded_sweater,off-shoulder_sweater,ribbed_sweater,striped_sweater,virgin_killer_sweater,puffer_jacket,raincoat,dress,long_dress,off-shoulder_dress,sweater_dress,summer_dress,skirt,microskirt,miniskirt, layered skirts,pleated_skirt,pencil_skirt,bubble_skirt,tutu,taut_dress,pencil_dress,denim_skirt,chiffon_skirt,frilled_skirt,fur-trimmed_skirt,lace_skirt,ribbon-trimmed_skirt,shorts,striped_shorts,suspender_shorts,denim_shorts,yoga_pants,jeans,capri_pants,bloomers,business_suit,school_uniform,serafuku,nurse,police_uniform,naval_uniform,military_uniform,maid,apron,chef_uniform,space_suit,labcoat,cheerleader,tuxedo,evening_gown,wedding_dress,miko,nun_cloth,bunny_costume,cat_costume,dog_costume,bear_costume,santa_costume,armor,bikini_armor,full_armor,plate_armor,japanese_armor,power_armor,mecha,helmet,kabuto,off-shoulder_armor,shoulder_armor,muneate,breastplate,faulds,shin_guards,armored_boots,Taoist robe,robe,robe_of_blending,cloak,hagoromo],",
+        194643611170187,
+        "randomize"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "SixGodPrompts",
+      "pos": [
+        150,
+        -70
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "clip",
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 48,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": null,
+          "shape": 3,
+          "label": "CONDITIONING"
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            44
+          ],
+          "shape": 3,
+          "label": "STRING",
+          "slot_index": 1
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SixGodPrompts"
+      },
+      "widgets_values": [
+        "#[gym_uniform,athletic_leotard,volleyball_uniform,tennis_uniform,baseball_uniform,letterman_jacket,volleyball_uniform,bikesuit,swimsuit,school_swimsuit,competition_swimsuit,casual_one-piece_swimsuit,highleg_swimsuit,one-piece_swimsuit,bikini,micro_bikini,maid_bikini,sailor_bikini,shell_bikini,sports_bikini,string_bikini,blouse,collared_shirt,sailor_shirt,t-shirt,tank_top,vest,casual,hoodie,homewear,pajamas,print_pajamas,polka_dot_pajamas,blazer,overcoat,fur_coat,jacket,leather_jacket,denim_jacket,sweater,turtleneck_sweater,ribbed_sweater,sweater_vest,backless_sweater,beige_sweater,brown_sweater,hooded_sweater,off-shoulder_sweater,ribbed_sweater,striped_sweater,virgin_killer_sweater,puffer_jacket,raincoat,dress,long_dress,off-shoulder_dress,sweater_dress,summer_dress,skirt,microskirt,miniskirt, layered skirts,pleated_skirt,pencil_skirt,bubble_skirt,tutu,taut_dress,pencil_dress,denim_skirt,chiffon_skirt,frilled_skirt,fur-trimmed_skirt,lace_skirt,ribbon-trimmed_skirt,shorts,striped_shorts,suspender_shorts,denim_shorts,yoga_pants,jeans,capri_pants,bloomers,business_suit,school_uniform,serafuku,nurse,police_uniform,naval_uniform,military_uniform,maid,apron,chef_uniform,space_suit,labcoat,cheerleader,tuxedo,evening_gown,wedding_dress,miko,nun_cloth,bunny_costume,cat_costume,dog_costume,bear_costume,santa_costume,armor,bikini_armor,full_armor,plate_armor,japanese_armor,power_armor,mecha,helmet,kabuto,off-shoulder_armor,shoulder_armor,muneate,breastplate,faulds,shin_guards,armored_boots,Taoist robe,robe,robe_of_blending,cloak,hagoromo],",
+        203349872581808,
+        "randomize"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "easy positive",
+      "pos": [
+        -270,
+        -220
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            39,
+            45,
+            46,
+            47,
+            48
+          ],
+          "shape": 3,
+          "label": "正面提示词",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy positive"
+      },
+      "widgets_values": [
+        "#[gym_uniform,athletic_leotard,volleyball_uniform,tennis_uniform,baseball_uniform,letterman_jacket,volleyball_uniform,bikesuit,swimsuit,school_swimsuit,competition_swimsuit,casual_one-piece_swimsuit,highleg_swimsuit,one-piece_swimsuit,bikini,micro_bikini,maid_bikini,sailor_bikini,shell_bikini,sports_bikini,string_bikini,blouse,collared_shirt,sailor_shirt,t-shirt,tank_top,vest,casual,hoodie,homewear,pajamas,print_pajamas,polka_dot_pajamas,blazer,overcoat,fur_coat,jacket,leather_jacket,denim_jacket,sweater,turtleneck_sweater,ribbed_sweater,sweater_vest,backless_sweater,beige_sweater,brown_sweater,hooded_sweater,off-shoulder_sweater,ribbed_sweater,striped_sweater,virgin_killer_sweater,puffer_jacket,raincoat,dress,long_dress,off-shoulder_dress,sweater_dress,summer_dress,skirt,microskirt,miniskirt, layered skirts,pleated_skirt,pencil_skirt,bubble_skirt,tutu,taut_dress,pencil_dress,denim_skirt,chiffon_skirt,frilled_skirt,fur-trimmed_skirt,lace_skirt,ribbon-trimmed_skirt,shorts,striped_shorts,suspender_shorts,denim_shorts,yoga_pants,jeans,capri_pants,bloomers,business_suit,school_uniform,serafuku,nurse,police_uniform,naval_uniform,military_uniform,maid,apron,chef_uniform,space_suit,labcoat,cheerleader,tuxedo,evening_gown,wedding_dress,miko,nun_cloth,bunny_costume,cat_costume,dog_costume,bear_costume,santa_costume,armor,bikini_armor,full_armor,plate_armor,japanese_armor,power_armor,mecha,helmet,kabuto,off-shoulder_armor,shoulder_armor,muneate,breastplate,faulds,shin_guards,armored_boots,Taoist robe,robe,robe_of_blending,cloak,hagoromo],"
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 16,
+      "type": "LayerUtility: ImageScaleByAspectRatio V2",
+      "pos": [
+        -900,
+        210
+      ],
+      "size": {
+        "0": 320,
+        "1": 330
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 19,
+          "label": "图像"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 20,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            22
+          ],
+          "shape": 3,
+          "label": "遮罩",
+          "slot_index": 1
+        },
+        {
+          "name": "original_size",
+          "type": "BOX",
+          "links": null,
+          "shape": 3,
+          "label": "原始大小"
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 4
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: ImageScaleByAspectRatio V2"
+      },
+      "widgets_values": [
+        "9:16",
+        1,
+        1,
+        "crop",
+        "lanczos",
+        "8",
+        "longest",
+        1080,
+        "#000000"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "easy promptList",
+      "pos": [
+        330,
+        -240
+      ],
+      "size": {
+        "0": 440,
+        "1": 300
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "optional_prompt_list",
+          "type": "LIST",
+          "link": null,
+          "label": "列表（可选）"
+        },
+        {
+          "name": "prompt_1",
+          "type": "STRING",
+          "link": 40,
+          "widget": {
+            "name": "prompt_1"
+          }
+        },
+        {
+          "name": "prompt_2",
+          "type": "STRING",
+          "link": 41,
+          "widget": {
+            "name": "prompt_2"
+          }
+        },
+        {
+          "name": "prompt_3",
+          "type": "STRING",
+          "link": 42,
+          "widget": {
+            "name": "prompt_3"
+          }
+        },
+        {
+          "name": "prompt_4",
+          "type": "STRING",
+          "link": 43,
+          "widget": {
+            "name": "prompt_4"
+          }
+        },
+        {
+          "name": "prompt_5",
+          "type": "STRING",
+          "link": 44,
+          "widget": {
+            "name": "prompt_5"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt_list",
+          "type": "LIST",
+          "links": null,
+          "shape": 3,
+          "label": "列表"
+        },
+        {
+          "name": "prompt_strings",
+          "type": "STRING",
+          "links": [
+            49
+          ],
+          "shape": 6,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy promptList"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "color": "#008181"
+    },
+    {
+      "id": 8,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        1550,
+        -150
+      ],
+      "size": {
+        "0": 320,
+        "1": 380
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 9,
+          "label": "正面条件",
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 10,
+          "label": "负面条件",
+          "slot_index": 1
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 11,
+          "label": "ControlNet",
+          "slot_index": 2
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 12,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            7
+          ],
+          "shape": 3,
+          "label": "正面条件",
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            8
+          ],
+          "shape": 3,
+          "label": "负面条件",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1110,
+        -140
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "CLIP"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 49,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            9
+          ],
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Sunglasses"
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 10,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1110,
+        100
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bad proportions, low resolution,worst quality, low quality, normal quality, lowres,  inaccurate limb, bad, ugly, terrible,  extra fingers, fewer fingers, missing fingers, extra arms, extra legs, inaccurate eyes, bad composition, bad anatomy, error, extra digit, fewer digits, cropped, low res, jpeg artifacts, trademark,artist's name, username, watermarksignature, watermark,text, words,nsfw,"
+      ],
+      "color": "#af3535"
+    },
+    {
+      "id": 3,
+      "type": "Anything Everywhere",
+      "pos": [
+        630,
+        610
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "*",
+          "link": 2,
+          "label": "输入",
+          "color_on": "#FFD500"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": [
+        "<comfy.sd.CLIP object at 0x000002168701E980>"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Anything Everywhere",
+      "pos": [
+        750,
+        640
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "*",
+          "link": 3,
+          "label": "输入",
+          "color_on": "#FF6E6E"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": [
+        "<comfy.sd.VAE object at 0x00000216897E9900>"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "PreviewImage",
+      "pos": [
+        -1020,
+        810
+      ],
+      "size": [
+        1510,
+        490
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 38,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      2,
+      1,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      2,
+      2,
+      4,
+      0,
+      "VAE"
+    ],
+    [
+      4,
+      5,
+      0,
+      1,
+      3,
+      "LATENT"
+    ],
+    [
+      5,
+      1,
+      0,
+      6,
+      0,
+      "LATENT"
+    ],
+    [
+      7,
+      8,
+      0,
+      1,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      8,
+      1,
+      1,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      9,
+      9,
+      0,
+      8,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      10,
+      10,
+      0,
+      8,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      11,
+      0,
+      8,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      12,
+      11,
+      1,
+      8,
+      3,
+      "IMAGE"
+    ],
+    [
+      13,
+      12,
+      0,
+      11,
+      0,
+      "PLUS_INPUT"
+    ],
+    [
+      15,
+      14,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      13,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      15,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      15,
+      1,
+      16,
+      1,
+      "MASK"
+    ],
+    [
+      21,
+      16,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      16,
+      1,
+      13,
+      1,
+      "MASK"
+    ],
+    [
+      23,
+      16,
+      3,
+      5,
+      0,
+      "INT"
+    ],
+    [
+      24,
+      16,
+      4,
+      5,
+      1,
+      "INT"
+    ],
+    [
+      25,
+      15,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      38,
+      6,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      39,
+      39,
+      0,
+      33,
+      1,
+      "STRING"
+    ],
+    [
+      40,
+      35,
+      1,
+      34,
+      1,
+      "STRING"
+    ],
+    [
+      41,
+      33,
+      1,
+      34,
+      2,
+      "STRING"
+    ],
+    [
+      42,
+      36,
+      1,
+      34,
+      3,
+      "STRING"
+    ],
+    [
+      43,
+      37,
+      1,
+      34,
+      4,
+      "STRING"
+    ],
+    [
+      44,
+      38,
+      1,
+      34,
+      5,
+      "STRING"
+    ],
+    [
+      45,
+      39,
+      0,
+      35,
+      1,
+      "STRING"
+    ],
+    [
+      46,
+      39,
+      0,
+      36,
+      1,
+      "STRING"
+    ],
+    [
+      47,
+      39,
+      0,
+      37,
+      1,
+      "STRING"
+    ],
+    [
+      48,
+      39,
+      0,
+      38,
+      1,
+      "STRING"
+    ],
+    [
+      49,
+      34,
+      1,
+      9,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8769226950000005,
+      "offset": [
+        1457.8500313901848,
+        324.38167460852105
+      ]
+    }
+  },
+  "version": 0.4
+}

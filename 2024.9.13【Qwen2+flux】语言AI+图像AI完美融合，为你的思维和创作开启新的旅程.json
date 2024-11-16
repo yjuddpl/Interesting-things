@@ -1,0 +1,1972 @@
+{
+  "last_node_id": 122,
+  "last_link_id": 160,
+  "nodes": [
+    {
+      "id": 58,
+      "type": "ImageLoader",
+      "pos": {
+        "0": -1080,
+        "1": -330
+      },
+      "size": {
+        "0": 260,
+        "1": 340
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "MASK"
+        },
+        {
+          "name": "PATH",
+          "type": "PATH",
+          "links": [
+            72,
+            93
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "PATH"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageLoader"
+      },
+      "widgets_values": [
+        "1 (5).png",
+        "image"
+      ]
+    },
+    {
+      "id": 64,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": -40,
+        "1": -300
+      },
+      "size": {
+        "0": 560,
+        "1": 530
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 90,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "The image shows a person with long, straight blonde hair styled in a side braid. They are wearing a dark blue one-piece swimsuit and are standing on a sandy beach with the ocean in the background. The sky is clear and blue, and there are some green hills visible in the distance."
+      ]
+    },
+    {
+      "id": 68,
+      "type": "MultiplePathsInput",
+      "pos": {
+        "0": -780,
+        "1": -150
+      },
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "path_1",
+          "type": "PATH",
+          "link": 93,
+          "label": "path_1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "paths",
+          "type": "PATH",
+          "links": [
+            92
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "paths"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        1,
+        null
+      ]
+    },
+    {
+      "id": 70,
+      "type": "UnetLoaderGGUF",
+      "pos": {
+        "0": 290,
+        "1": 410
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            94
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UnetLoaderGGUF"
+      },
+      "widgets_values": [
+        "gguf\\flux1-dev-Q4_K_S.gguf"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "DualCLIPLoader",
+      "pos": {
+        "0": 290,
+        "1": 520
+      },
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            95
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "SD3\\clip_l.safetensors",
+        "SD3\\t5xxl_fp8_e4m3fn.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 72,
+      "type": "VAELoader",
+      "pos": {
+        "0": 290,
+        "1": 680
+      },
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.sft"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "LoraLoader",
+      "pos": {
+        "0": 650,
+        "1": 530
+      },
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 94,
+          "label": "模型"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 95,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            96
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            99,
+            102
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "HyperSD\\FLUX.1\\Hyper-FLUX.1-dev-8steps-lora.safetensors",
+        0.12,
+        1
+      ]
+    },
+    {
+      "id": 74,
+      "type": "KSampler",
+      "pos": {
+        "0": 1310,
+        "1": 360
+      },
+      "size": [
+        320,
+        470
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 96,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 97,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 101,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 103,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        223182134144652,
+        "randomize",
+        8,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 76,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 1060,
+        "1": 540
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 102,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            101
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bad proportions, low resolution,worst quality, low quality, normal quality, lowres,  inaccurate limb, bad, ugly, terrible,  extra fingers, fewer fingers, missing fingers, extra arms, extra legs, inaccurate eyes, bad composition, bad anatomy, error, extra digit, fewer digits, cropped, low res, jpeg artifacts, trademark,artist's name, username, watermarksignature, watermark,text, words,"
+      ]
+    },
+    {
+      "id": 77,
+      "type": "EmptyLatentImage",
+      "pos": {
+        "0": 980,
+        "1": 670
+      },
+      "size": {
+        "0": 320,
+        "1": 110
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            103
+          ],
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 78,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 1680,
+        "1": 390
+      },
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 104,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 105,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            106
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 79,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1930,
+        "1": 350
+      },
+      "size": {
+        "0": 450,
+        "1": 460
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 106,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 108,
+      "type": "Note",
+      "pos": {
+        "0": -680,
+        "1": 790
+      },
+      "size": {
+        "0": 330,
+        "1": 60
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "翻译"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 109,
+      "type": "List of strings [Crystools]",
+      "pos": {
+        "0": -1370,
+        "1": 1060
+      },
+      "size": {
+        "0": 320,
+        "1": 270
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "concatenated",
+          "type": "STRING",
+          "links": [
+            148
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串合并"
+        },
+        {
+          "name": "list_string",
+          "type": "ListString",
+          "links": null,
+          "shape": 6,
+          "label": "字符串列表"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "List of strings [Crystools]"
+      },
+      "widgets_values": [
+        "帮我将以下关键词为核心润色出一段100字以内图像描述，要求英文：",
+        "美丽的女孩子，夕阳，海边，沙滩",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        " "
+      ]
+    },
+    {
+      "id": 110,
+      "type": "Qwen2_VQA",
+      "pos": {
+        "0": -950,
+        "1": 1040
+      },
+      "size": {
+        "0": 420,
+        "1": 370
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "source_path",
+          "type": "PATH",
+          "link": null,
+          "label": "source_path"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 148,
+          "widget": {
+            "name": "text"
+          },
+          "label": "text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            149,
+            153
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Qwen2_VQA"
+      },
+      "widgets_values": [
+        "用英文描述一下图像",
+        "Qwen2-VL-2B-Instruct",
+        "none",
+        false,
+        0.7,
+        2048,
+        813008,
+        1129744,
+        1506,
+        "fixed"
+      ]
+    },
+    {
+      "id": 97,
+      "type": "SomethingToString",
+      "pos": {
+        "0": 650,
+        "1": 390
+      },
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 150,
+          "label": "输入"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            155
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SomethingToString"
+      },
+      "widgets_values": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 118,
+      "type": "ImageLoader",
+      "pos": {
+        "0": 290,
+        "1": 990
+      },
+      "size": {
+        "0": 260,
+        "1": 340
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "MASK"
+        },
+        {
+          "name": "PATH",
+          "type": "PATH",
+          "links": [
+            158
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "PATH"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageLoader"
+      },
+      "widgets_values": [
+        "24.png",
+        "image"
+      ]
+    },
+    {
+      "id": 121,
+      "type": "MultiplePathsInput",
+      "pos": {
+        "0": 590,
+        "1": 1010
+      },
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "path_1",
+          "type": "PATH",
+          "link": 158,
+          "label": "path_1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "paths",
+          "type": "PATH",
+          "links": [
+            156
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "paths"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        1,
+        null
+      ]
+    },
+    {
+      "id": 102,
+      "type": "SomethingToString",
+      "pos": {
+        "0": -2090,
+        "1": 840
+      },
+      "size": {
+        "0": 230,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "*",
+          "link": 144,
+          "label": "输入"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            145
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SomethingToString"
+      },
+      "widgets_values": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 103,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": -1230,
+        "1": 720
+      },
+      "size": {
+        "0": 450,
+        "1": 200
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 147,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "在这款简洁的客厅设计中，大面积的白色墙面被淡木色的实木地板柔和地过渡，营造出明亮而舒适的空间感。中央摆放一张流线型的深灰色布艺沙发，配以几只浅蓝色的抱枕，展现出清新而不失格调。角落里，一盏简约的落地灯洒出暖黄色的光线，照亮一排开放式书架，书籍和艺术画册错落有致地排列着。"
+      ]
+    },
+    {
+      "id": 107,
+      "type": "Any Switch (rgthree)",
+      "pos": {
+        "0": -1300,
+        "1": 390
+      },
+      "size": {
+        "0": 210,
+        "1": 110
+      },
+      "flags": {},
+      "order": 22,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "any_01",
+          "type": "STRING",
+          "link": 145,
+          "label": "输入_01",
+          "dir": 3
+        },
+        {
+          "name": "any_02",
+          "type": "STRING",
+          "link": 142,
+          "label": "输入_02",
+          "dir": 3
+        },
+        {
+          "name": "any_03",
+          "type": "STRING",
+          "link": null,
+          "label": "输入_03",
+          "dir": 3
+        },
+        {
+          "name": "any_04",
+          "type": "STRING",
+          "link": null,
+          "label": "输入_04",
+          "dir": 3
+        },
+        {
+          "name": "any_05",
+          "type": "STRING",
+          "link": null,
+          "label": "输入_05",
+          "dir": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "STRING",
+          "links": [
+            146,
+            147
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "STRING",
+          "dir": 4
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 60,
+      "type": "ImageLoader",
+      "pos": {
+        "0": -1330,
+        "1": -330
+      },
+      "size": {
+        "0": 230,
+        "1": 340
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "MASK"
+        },
+        {
+          "name": "PATH",
+          "type": "PATH",
+          "links": [
+            80
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "PATH"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageLoader"
+      },
+      "widgets_values": [
+        "40.png",
+        "image"
+      ]
+    },
+    {
+      "id": 63,
+      "type": "Qwen2_VQA",
+      "pos": {
+        "0": -530,
+        "1": -310
+      },
+      "size": {
+        "0": 420,
+        "1": 370
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "source_path",
+          "type": "PATH",
+          "link": 92,
+          "label": "source_path"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            90,
+            151
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Qwen2_VQA"
+      },
+      "widgets_values": [
+        "用英文描述一下图像",
+        "Qwen2-VL-2B-Instruct",
+        "none",
+        false,
+        0.7,
+        2048,
+        813008,
+        1129744,
+        1506,
+        "fixed"
+      ]
+    },
+    {
+      "id": 57,
+      "type": "MultiplePathsInput",
+      "pos": {
+        "0": -770,
+        "1": -330
+      },
+      "size": {
+        "0": 210,
+        "1": 100
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "path_1",
+          "type": "PATH",
+          "link": 72,
+          "label": "path_1"
+        },
+        {
+          "name": "path_2",
+          "type": "PATH",
+          "link": 80,
+          "label": "path_2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "paths",
+          "type": "PATH",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "paths"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        2,
+        null
+      ]
+    },
+    {
+      "id": 115,
+      "type": "LoadVideo",
+      "pos": {
+        "0": -1740,
+        "1": -360
+      },
+      "size": [
+        320,
+        370
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "PATH",
+          "type": "PATH",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "11a.mp4",
+        "Video",
+        {
+          "hidden": false,
+          "paused": false,
+          "params": {}
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "type": "Qwen2_VQA",
+      "pos": {
+        "0": -2130,
+        "1": 420
+      },
+      "size": {
+        "0": 420,
+        "1": 370
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "source_path",
+          "type": "PATH",
+          "link": null,
+          "label": "source_path"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            144
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Qwen2_VQA"
+      },
+      "widgets_values": [
+        "帮我写一段“一个女孩走在大街上”描述用作AI绘图。要求：真实风格，构图美观，简洁，不超过100字",
+        "Qwen2-VL-2B-Instruct",
+        "none",
+        false,
+        0.7,
+        2048,
+        813008,
+        1129744,
+        1506,
+        "fixed"
+      ]
+    },
+    {
+      "id": 105,
+      "type": "easy positive",
+      "pos": {
+        "0": -1660,
+        "1": 550
+      },
+      "size": [
+        390,
+        370
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "STRING",
+          "links": [
+            142
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "正面提示词"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy positive"
+      },
+      "widgets_values": [
+        "在这款简洁的客厅设计中，大面积的白色墙面被淡木色的实木地板柔和地过渡，营造出明亮而舒适的空间感。中央摆放一张流线型的深灰色布艺沙发，配以几只浅蓝色的抱枕，展现出清新而不失格调。角落里，一盏简约的落地灯洒出暖黄色的光线，照亮一排开放式书架，书籍和艺术画册错落有致地排列着。"
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 99,
+      "type": "List of strings [Crystools]",
+      "pos": {
+        "0": -1070,
+        "1": 400
+      },
+      "size": {
+        "0": 320,
+        "1": 270
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "string_3",
+          "type": "STRING",
+          "link": 146,
+          "widget": {
+            "name": "string_3"
+          },
+          "label": "字符串_3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "concatenated",
+          "type": "STRING",
+          "links": [
+            128
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串合并"
+        },
+        {
+          "name": "list_string",
+          "type": "ListString",
+          "links": null,
+          "shape": 6,
+          "label": "字符串列表"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "List of strings [Crystools]"
+      },
+      "widgets_values": [
+        "帮我将以下内容翻译成英文：",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        " "
+      ]
+    },
+    {
+      "id": 98,
+      "type": "Qwen2_VQA",
+      "pos": {
+        "0": -710,
+        "1": 380
+      },
+      "size": {
+        "0": 420,
+        "1": 370
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "source_path",
+          "type": "PATH",
+          "link": null,
+          "label": "source_path"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 128,
+          "widget": {
+            "name": "text"
+          },
+          "label": "text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            130,
+            152
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Qwen2_VQA"
+      },
+      "widgets_values": [
+        "用英文描述一下图像",
+        "Qwen2-VL-2B-Instruct",
+        "none",
+        false,
+        0.7,
+        2048,
+        813008,
+        1129744,
+        277,
+        "fixed"
+      ]
+    },
+    {
+      "id": 101,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": -260,
+        "1": 400
+      },
+      "size": {
+        "0": 490,
+        "1": 400
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 130,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "In this minimalist living room design, the large white walls are softened by a soft transition to the wooden floor, creating a bright and comfortable space. A sleek, deep grey fabric sofa is centrally placed, accompanied by a few light blue cushions, presenting a fresh yet refined look. In the corner, a simple floor lamp casts warm yellow light, illuminating an open bookshelf, with books and art books arranged in a pleasing manner."
+      ]
+    },
+    {
+      "id": 111,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": -400,
+        "1": 1040
+      },
+      "size": {
+        "0": 430,
+        "1": 320
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 149,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "The sun sets over the beach, casting a warm glow over the girl's hair as she sits on the sand, her feet in the soft sand. The sound of waves crashing against the shore fills the air, and the girl's laughter echoes through the sea. She looks up at the sky, filled with wonder and joy, as the sun sets over the horizon."
+      ]
+    },
+    {
+      "id": 120,
+      "type": "ShowText|pysssss",
+      "pos": {
+        "0": 1300,
+        "1": 990
+      },
+      "size": [
+        560,
+        530
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 157,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "```json\n{\n  \"image\": {\n    \"url\": \"https://example.com/your-image-url\",\n    \"description\": \"A fantasy woman with long white hair and a black corset, surrounded by crows in a desolate, foggy landscape.\"\n  },\n  \"composition\": {\n    \"title\": \"Fantasy Woman with Long White Hair and Black Corset\",\n    \"description\": \"A woman with long white hair and a black corset stands in a desolate, foggy landscape, surrounded by crows.\",\n    \"elements\": [\n      {\n        \"name\": \"woman\",\n        \"description\": \"A woman with long white hair and a black corset.\",\n        \"position\": \"center\"\n      },\n      {\n        \"name\": \"crow\",\n        \"description\": \"A black crow flying in the sky.\",\n        \"position\": \"top right\"\n      },\n      {\n        \"name\": \"crow\",\n        \"description\": \"A black crow flying in the sky.\",\n        \"position\": \"top left\"\n      },\n      {\n        \"name\": \"crow\",\n        \"description\": \"A black crow flying in the sky.\",\n        \"position\": \"bottom left\"\n      },\n      {\n        \"name\": \"crow\",\n        \"description\": \"A black crow flying in the sky.\",\n        \"position\": \"bottom right\"\n      }\n    ]\n  }\n}\n```"
+      ]
+    },
+    {
+      "id": 119,
+      "type": "Qwen2_VQA",
+      "pos": {
+        "0": 820,
+        "1": 1010
+      },
+      "size": {
+        "0": 420,
+        "1": 370
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_path",
+          "type": "PATH",
+          "link": 156,
+          "label": "source_path"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            157,
+            159
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Qwen2_VQA"
+      },
+      "widgets_values": [
+        "构图写成json格式",
+        "Qwen2-VL-2B-Instruct",
+        "none",
+        false,
+        0.7,
+        2048,
+        813008,
+        1129744,
+        1506,
+        "fixed"
+      ]
+    },
+    {
+      "id": 112,
+      "type": "Any Switch (rgthree)",
+      "pos": {
+        "0": 560,
+        "1": 110
+      },
+      "size": {
+        "0": 210,
+        "1": 110
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_01",
+          "type": "STRING",
+          "link": 151,
+          "label": "输入_01",
+          "dir": 3
+        },
+        {
+          "name": "any_02",
+          "type": "STRING",
+          "link": 152,
+          "label": "输入_02",
+          "dir": 3
+        },
+        {
+          "name": "any_03",
+          "type": "STRING",
+          "link": 153,
+          "label": "输入_03",
+          "dir": 3
+        },
+        {
+          "name": "any_04",
+          "type": "STRING",
+          "link": 159,
+          "label": "输入_04",
+          "dir": 3
+        },
+        {
+          "name": "any_05",
+          "type": "STRING",
+          "link": null,
+          "label": "输入_05",
+          "dir": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "STRING",
+          "links": [
+            150
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "STRING",
+          "dir": 4
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 75,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 1070,
+        "1": 400
+      },
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 99,
+          "label": "CLIP"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 155,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            97
+          ],
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      72,
+      58,
+      2,
+      57,
+      0,
+      "PATH"
+    ],
+    [
+      80,
+      60,
+      2,
+      57,
+      1,
+      "PATH"
+    ],
+    [
+      90,
+      63,
+      0,
+      64,
+      0,
+      "STRING"
+    ],
+    [
+      92,
+      68,
+      0,
+      63,
+      0,
+      "PATH"
+    ],
+    [
+      93,
+      58,
+      2,
+      68,
+      0,
+      "PATH"
+    ],
+    [
+      94,
+      70,
+      0,
+      73,
+      0,
+      "MODEL"
+    ],
+    [
+      95,
+      71,
+      0,
+      73,
+      1,
+      "CLIP"
+    ],
+    [
+      96,
+      73,
+      0,
+      74,
+      0,
+      "MODEL"
+    ],
+    [
+      97,
+      75,
+      0,
+      74,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      99,
+      73,
+      1,
+      75,
+      0,
+      "CLIP"
+    ],
+    [
+      101,
+      76,
+      0,
+      74,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      102,
+      73,
+      1,
+      76,
+      0,
+      "CLIP"
+    ],
+    [
+      103,
+      77,
+      0,
+      74,
+      3,
+      "LATENT"
+    ],
+    [
+      104,
+      74,
+      0,
+      78,
+      0,
+      "LATENT"
+    ],
+    [
+      105,
+      72,
+      0,
+      78,
+      1,
+      "VAE"
+    ],
+    [
+      106,
+      78,
+      0,
+      79,
+      0,
+      "IMAGE"
+    ],
+    [
+      128,
+      99,
+      0,
+      98,
+      1,
+      "STRING"
+    ],
+    [
+      130,
+      98,
+      0,
+      101,
+      0,
+      "STRING"
+    ],
+    [
+      142,
+      105,
+      0,
+      107,
+      1,
+      "STRING"
+    ],
+    [
+      144,
+      100,
+      0,
+      102,
+      0,
+      "*"
+    ],
+    [
+      145,
+      102,
+      0,
+      107,
+      0,
+      "STRING"
+    ],
+    [
+      146,
+      107,
+      0,
+      99,
+      0,
+      "STRING"
+    ],
+    [
+      147,
+      107,
+      0,
+      103,
+      0,
+      "STRING"
+    ],
+    [
+      148,
+      109,
+      0,
+      110,
+      1,
+      "STRING"
+    ],
+    [
+      149,
+      110,
+      0,
+      111,
+      0,
+      "STRING"
+    ],
+    [
+      150,
+      112,
+      0,
+      97,
+      0,
+      "*"
+    ],
+    [
+      151,
+      63,
+      0,
+      112,
+      0,
+      "STRING"
+    ],
+    [
+      152,
+      98,
+      0,
+      112,
+      1,
+      "STRING"
+    ],
+    [
+      153,
+      110,
+      0,
+      112,
+      2,
+      "STRING"
+    ],
+    [
+      155,
+      97,
+      0,
+      75,
+      1,
+      "STRING"
+    ],
+    [
+      156,
+      121,
+      0,
+      119,
+      0,
+      "PATH"
+    ],
+    [
+      157,
+      119,
+      0,
+      120,
+      0,
+      "STRING"
+    ],
+    [
+      158,
+      118,
+      2,
+      121,
+      0,
+      "PATH"
+    ],
+    [
+      159,
+      119,
+      0,
+      112,
+      3,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Group",
+      "bounding": [
+        -2140,
+        350,
+        440,
+        584
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "AItxt",
+      "bounding": [
+        -2150,
+        300,
+        2400,
+        650
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "gguf",
+      "bounding": [
+        280,
+        280,
+        2110,
+        564
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "image",
+      "bounding": [
+        -1340,
+        -400,
+        1870,
+        644
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "AItxt2",
+      "bounding": [
+        -1380,
+        970,
+        1420,
+        454
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "json",
+      "bounding": [
+        280,
+        910,
+        1582,
+        614
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5989500000000009,
+      "offset": [
+        2287.5299610763727,
+        536.5822789231971
+      ]
+    }
+  },
+  "version": 0.4
+}
