@@ -1,0 +1,2208 @@
+{
+  "last_node_id": 51,
+  "last_link_id": 75,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "TripleCLIPLoader",
+      "pos": [
+        440,
+        -10
+      ],
+      "size": [
+        330,
+        110
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TripleCLIPLoader"
+      },
+      "widgets_values": [
+        "SD3\\clip_g.safetensors",
+        "SD3\\clip_l.safetensors",
+        "SD3\\t5xxl_fp16.safetensors"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Checkpoint Loader (Simple)",
+      "pos": [
+        440,
+        -190
+      ],
+      "size": [
+        330,
+        120
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3,
+          "label": "CLIP"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "VAE"
+        },
+        {
+          "name": "NAME_STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "label": "名称字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Checkpoint Loader (Simple)"
+      },
+      "widgets_values": [
+        "SD3.5\\sd3.5_large.safetensors"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        440,
+        140
+      ],
+      "size": [
+        470,
+        480
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3,
+            4
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            29
+          ],
+          "slot_index": 1,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "c5.jpg",
+        "image"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 4,
+      "type": "Anything Everywhere",
+      "pos": [
+        810,
+        -170
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "*",
+          "link": 1,
+          "shape": 7,
+          "label": "输入",
+          "color_on": "#B39DDB"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": [
+        "<comfy.model_patcher.ModelPatcher object at 0x0000020C5FC0CDF0>"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "Anything Everywhere",
+      "pos": [
+        810,
+        -10
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "*",
+          "link": 2,
+          "shape": 7,
+          "label": "输入",
+          "color_on": "#FFD500"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": [
+        "<comfy.sd.CLIP object at 0x0000020C5FC0C700>"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "Anything Everywhere",
+      "pos": [
+        810,
+        80
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "*",
+          "link": 3,
+          "shape": 7,
+          "label": "输入",
+          "color_on": "#64B5F6"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": [
+        "Tensor shape torch.Size([1, 1024, 768, 3])"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "LayerMask: SegmentAnythingUltra V2",
+      "pos": [
+        940,
+        190
+      ],
+      "size": [
+        340,
+        380
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null,
+          "label": "图像"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            28
+          ],
+          "slot_index": 1,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerMask: SegmentAnythingUltra V2"
+      },
+      "widgets_values": [
+        "sam_vit_h (2.56GB)",
+        "GroundingDINO_SwinT_OGC (694MB)",
+        0.3,
+        "VITMatte(local)",
+        6,
+        6,
+        0.15,
+        0.99,
+        true,
+        "Blue Shirt",
+        "cuda",
+        2,
+        false
+      ],
+      "color": "rgba(27, 80, 119, 0.7)"
+    },
+    {
+      "id": 10,
+      "type": "Simple String",
+      "pos": [
+        950,
+        -190
+      ],
+      "size": [
+        330,
+        60
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            17
+          ],
+          "slot_index": 0,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Simple String"
+      },
+      "widgets_values": [
+        "A black camisole with spaghetti straps"
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 11,
+      "type": "INPAINT_ExpandMask",
+      "pos": [
+        1320,
+        -180
+      ],
+      "size": [
+        240,
+        82
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 27,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            24,
+            25
+          ],
+          "slot_index": 0,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "INPAINT_ExpandMask"
+      },
+      "widgets_values": [
+        5,
+        7
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Anything Everywhere",
+      "pos": [
+        810,
+        -120
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "*",
+          "link": 8,
+          "shape": 7,
+          "label": "输入",
+          "color_on": "#FF6E6E"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": [
+        "<comfy.sd.VAE object at 0x000002080AC2E5F0>"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2090,
+        -190
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "CLIP"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 16,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            20
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "realistic cat, detailed fur, soft lighting, sharp focus, high quality, 8k uhd, natural pose, photorealistic, clear eyes, whiskers, natural colors, soft shadows, indoor environment, window light, walking cat, prominent pointed,crisp ear details ears",
+        true
+      ],
+      "color": "#346434"
+    },
+    {
+      "id": 14,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        2080,
+        50
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 9,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "ConditioningSetTimestepRange",
+      "pos": [
+        2070,
+        130
+      ],
+      "size": [
+        320,
+        82
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 10,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningSetTimestepRange"
+      },
+      "widgets_values": [
+        0.1,
+        1
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ConditioningCombine",
+      "pos": [
+        2410,
+        170
+      ],
+      "size": [
+        230,
+        50
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning_1",
+          "type": "CONDITIONING",
+          "link": 11,
+          "label": "条件1"
+        },
+        {
+          "name": "conditioning_2",
+          "type": "CONDITIONING",
+          "link": 12,
+          "label": "条件2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            19
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "ConditioningSetTimestepRange",
+      "pos": [
+        2070,
+        260
+      ],
+      "size": [
+        320,
+        82
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 13,
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            12
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningSetTimestepRange"
+      },
+      "widgets_values": [
+        0,
+        0.1
+      ]
+    },
+    {
+      "id": 18,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1660,
+        170
+      ],
+      "size": [
+        350,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            9,
+            13
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "deformed, bad anatomy, disfigured, poorly drawn, extra limbs, blurry, bad proportions, watermark, signature, out of frame, extra tails, low quality, jpeg artifacts, cartoon, anime, drawing, painting\n",
+        true
+      ],
+      "color": "#af3535"
+    },
+    {
+      "id": 19,
+      "type": "StringFunction|pysssss",
+      "pos": [
+        1660,
+        -190
+      ],
+      "size": [
+        350,
+        260
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 18,
+          "widget": {
+            "name": "text_a"
+          },
+          "shape": 7,
+          "label": "文本_A"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            16
+          ],
+          "slot_index": 0,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "widgets_values": [
+        "append",
+        "yes",
+        "",
+        ",soft lighting, sharp focus, high quality, 8k uhd, photorealistic,natural colors, soft shadows, indoor environment, window light",
+        "",
+        true,
+        true,
+        true,
+        "A black camisole with spaghetti straps,soft lighting, sharp focus, high quality, 8k uhd, photorealistic,natural colors, soft shadows, indoor environment, window light"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "SetNode",
+      "pos": [
+        930,
+        -70
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null,
+          "label": "输出"
+        }
+      ],
+      "properties": {
+        "previousName": "prompts"
+      },
+      "widgets_values": [
+        "prompts"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "GetNode",
+      "pos": [
+        1680,
+        120
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            18
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "prompts",
+      "properties": {},
+      "widgets_values": [
+        "prompts"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "InpaintModelConditioning",
+      "pos": [
+        2350,
+        -190
+      ],
+      "size": [
+        210,
+        138
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 20,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 19,
+          "label": "负面条件"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "label": "VAE"
+        },
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": null,
+          "label": "图像"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 45,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            38
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            39
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InpaintModelConditioning"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 28,
+      "type": "SetNode",
+      "pos": [
+        1350,
+        -40
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null,
+          "label": "输出"
+        }
+      ],
+      "properties": {
+        "previousName": "mask"
+      },
+      "widgets_values": [
+        "mask"
+      ],
+      "color": "#1c5715",
+      "bgcolor": "#1f401b"
+    },
+    {
+      "id": 29,
+      "type": "LayerMask: MaskPreview",
+      "pos": [
+        1300,
+        190
+      ],
+      "size": [
+        310,
+        350
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 25,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "LayerMask: MaskPreview"
+      },
+      "widgets_values": [],
+      "color": "rgba(27, 80, 119, 0.7)"
+    },
+    {
+      "id": 30,
+      "type": "Reroute",
+      "pos": [
+        1110,
+        10
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MASK",
+          "links": [
+            27
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 32,
+      "type": "Reroute",
+      "pos": [
+        1000,
+        60
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MASK",
+          "links": [
+            66
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 33,
+      "type": "Reroute",
+      "pos": [
+        1000,
+        -20
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 34,
+      "type": "Note",
+      "pos": [
+        1210,
+        10
+      ],
+      "size": [
+        210,
+        60
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "switch"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 38,
+      "type": "Prompts Everywhere",
+      "pos": [
+        2570,
+        -30
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "*",
+          "link": 37,
+          "shape": 7,
+          "color_on": "#FFA931"
+        },
+        {
+          "name": "CONDITIONING",
+          "type": "*",
+          "link": 38,
+          "shape": 7,
+          "color_on": "#FFA931"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Prompts Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 39,
+      "type": "Anything Everywhere",
+      "pos": [
+        2580,
+        -190
+      ],
+      "size": [
+        210,
+        80
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "*",
+          "link": 39,
+          "shape": 7,
+          "label": "输入",
+          "color_on": "#FF9CF9"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Anything Everywhere",
+        "group_restricted": 0,
+        "color_restricted": 0
+      },
+      "widgets_values": [
+        "Latent shape torch.Size([1, 16, 128, 96])"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "VAEDecode",
+      "pos": [
+        2100,
+        470
+      ],
+      "size": [
+        210,
+        50
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 40,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41,
+            43
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 41,
+      "type": "KSampler",
+      "pos": [
+        1660,
+        470
+      ],
+      "size": [
+        380,
+        500
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 47,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": null,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            40
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        421531555044112,
+        "randomize",
+        40,
+        4.5,
+        "dpmpp_2m",
+        "sgm_uniform",
+        1
+      ]
+    },
+    {
+      "id": 42,
+      "type": "PreviewImage",
+      "pos": [
+        2390,
+        470
+      ],
+      "size": [
+        400,
+        500
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 41,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 43,
+      "type": "UltimateSDUpscale",
+      "pos": [
+        1940,
+        1070
+      ],
+      "size": [
+        320,
+        830
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 44,
+          "label": "图像"
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": null,
+          "label": "负面条件"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "label": "VAE"
+        },
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 42,
+          "label": "放大模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            46
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltimateSDUpscale"
+      },
+      "widgets_values": [
+        2,
+        149154303143666,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        0.2,
+        "Linear",
+        512,
+        512,
+        8,
+        32,
+        "None",
+        1,
+        64,
+        8,
+        16,
+        true,
+        false
+      ]
+    },
+    {
+      "id": 44,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1660,
+        1180
+      ],
+      "size": [
+        240,
+        60
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            42
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "放大模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "ESRGAN\\4x-UltraSharp.pth"
+      ]
+    },
+    {
+      "id": 45,
+      "type": "SetNode",
+      "pos": [
+        2120,
+        600
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null,
+          "label": "输出"
+        }
+      ],
+      "properties": {
+        "previousName": "image"
+      },
+      "widgets_values": [
+        "image"
+      ],
+      "color": "#006691"
+    },
+    {
+      "id": 46,
+      "type": "GetNode",
+      "pos": [
+        1660,
+        1080
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 4,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            44
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "image",
+      "properties": {},
+      "widgets_values": [
+        "image"
+      ],
+      "color": "#006691"
+    },
+    {
+      "id": 47,
+      "type": "PreviewImage",
+      "pos": [
+        2280,
+        1080
+      ],
+      "size": [
+        510,
+        770
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 46,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 48,
+      "type": "Note",
+      "pos": [
+        430,
+        680
+      ],
+      "size": [
+        1200,
+        680
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node: \nhttps://github.com/WASasquatch/was-node-suite-comfyui\nhttps://github.com/chrisgoringe/cg-use-everywhere\nhttps://github.com/Acly/comfyui-inpaint-nodes\nhttps://github.com/chflame163/ComfyUI_LayerStyle\nhttps://github.com/pythongosssss/ComfyUI-Custom-Scripts\nhttps://github.com/kijai/ComfyUI-KJNodes\nhttps://github.com/ssitu/ComfyUI_UltimateSDUpscale\n\nmodels:\n--SD3.5--\nSD3.5：https://huggingface.co/stabilityai/stable-diffusion-3.5-large\n--controlnet--\nInstantX/FLUX.1-dev-Controlnet-Union：https://huggingface.co/InstantX/FLUX.1-dev-Controlnet-Union/tree/main\n--models\\upscale_models--\n4x-UltraSharp：https://huggingface.co/Kim2091/UltraSharp/tree/main\n--ComfyUI/models/clip--\nclip_g：https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/tree/main/text_encoders\nclip_l：https://huggingface.co/comfyanonymous/flux_text_encoders/tree/main\nt5xxl_fp16：https://huggingface.co/comfyanonymous/flux_text_encoders/tree/main\n\ncloud:\nWorkflows:https://pan.quark.cn/s/e76d9e972e8c\nmodels:https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node: https://pan.quark.cn/s/16dca69ca023\n\nVideos:\nbilibili:https://space.bilibili.com/473724003\nYouTube:https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 50,
+      "type": "GetNode",
+      "pos": [
+        2080,
+        -80
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            45
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "mask",
+      "properties": {},
+      "widgets_values": [
+        "mask"
+      ],
+      "color": "#1c5715",
+      "bgcolor": "#1f401b"
+    },
+    {
+      "id": 51,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        2070,
+        730
+      ],
+      "size": [
+        250,
+        60
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null,
+          "label": "模型"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            47
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        3
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      1,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      3,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      3,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      2,
+      2,
+      12,
+      0,
+      "VAE"
+    ],
+    [
+      9,
+      18,
+      0,
+      14,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      10,
+      14,
+      0,
+      15,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      15,
+      0,
+      16,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      17,
+      0,
+      16,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      13,
+      18,
+      0,
+      17,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      19,
+      0,
+      13,
+      1,
+      "STRING"
+    ],
+    [
+      17,
+      10,
+      0,
+      24,
+      0,
+      "*"
+    ],
+    [
+      18,
+      25,
+      0,
+      19,
+      0,
+      "STRING"
+    ],
+    [
+      19,
+      16,
+      0,
+      26,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      20,
+      13,
+      0,
+      26,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      24,
+      11,
+      0,
+      28,
+      0,
+      "*"
+    ],
+    [
+      25,
+      11,
+      0,
+      29,
+      0,
+      "MASK"
+    ],
+    [
+      27,
+      30,
+      0,
+      11,
+      0,
+      "MASK"
+    ],
+    [
+      28,
+      7,
+      1,
+      32,
+      0,
+      "*"
+    ],
+    [
+      29,
+      3,
+      1,
+      33,
+      0,
+      "*"
+    ],
+    [
+      37,
+      26,
+      0,
+      38,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      38,
+      26,
+      1,
+      38,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      39,
+      26,
+      2,
+      39,
+      0,
+      "LATENT"
+    ],
+    [
+      40,
+      41,
+      0,
+      40,
+      0,
+      "LATENT"
+    ],
+    [
+      41,
+      40,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      44,
+      0,
+      43,
+      5,
+      "UPSCALE_MODEL"
+    ],
+    [
+      43,
+      40,
+      0,
+      45,
+      0,
+      "*"
+    ],
+    [
+      44,
+      46,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      50,
+      0,
+      26,
+      4,
+      "MASK"
+    ],
+    [
+      46,
+      43,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      47,
+      51,
+      0,
+      41,
+      0,
+      "MODEL"
+    ],
+    [
+      48,
+      1,
+      0,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      49,
+      1,
+      0,
+      18,
+      0,
+      "CLIP"
+    ],
+    [
+      50,
+      2,
+      2,
+      26,
+      2,
+      "VAE"
+    ],
+    [
+      51,
+      3,
+      0,
+      26,
+      3,
+      "IMAGE"
+    ],
+    [
+      52,
+      2,
+      2,
+      40,
+      1,
+      "VAE"
+    ],
+    [
+      53,
+      26,
+      0,
+      41,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      26,
+      1,
+      41,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      55,
+      26,
+      2,
+      41,
+      3,
+      "LATENT"
+    ],
+    [
+      56,
+      2,
+      0,
+      43,
+      1,
+      "MODEL"
+    ],
+    [
+      57,
+      26,
+      0,
+      43,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      58,
+      26,
+      1,
+      43,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      59,
+      2,
+      2,
+      43,
+      4,
+      "VAE"
+    ],
+    [
+      60,
+      2,
+      0,
+      51,
+      0,
+      "MODEL"
+    ],
+    [
+      66,
+      32,
+      0,
+      30,
+      0,
+      "*"
+    ],
+    [
+      67,
+      1,
+      0,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      68,
+      1,
+      0,
+      18,
+      0,
+      "CLIP"
+    ],
+    [
+      69,
+      2,
+      2,
+      26,
+      2,
+      "VAE"
+    ],
+    [
+      70,
+      3,
+      0,
+      26,
+      3,
+      "IMAGE"
+    ],
+    [
+      71,
+      2,
+      2,
+      40,
+      1,
+      "VAE"
+    ],
+    [
+      72,
+      26,
+      0,
+      41,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      73,
+      26,
+      1,
+      41,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      74,
+      26,
+      2,
+      41,
+      3,
+      "LATENT"
+    ],
+    [
+      75,
+      2,
+      0,
+      51,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "İnpaiting",
+      "bounding": [
+        1650,
+        -270,
+        1150,
+        650
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "models_image_mask",
+      "bounding": [
+        430,
+        -270,
+        1200,
+        899
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Sample",
+      "bounding": [
+        1650,
+        400,
+        1150,
+        580
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Upscale",
+      "bounding": [
+        1650,
+        1000,
+        1150,
+        910
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.724729500000002,
+      "offset": [
+        -150.49962975135224,
+        526.6087387032971
+      ]
+    },
+    "ue_links": [
+      {
+        "downstream": 13,
+        "downstream_slot": 0,
+        "upstream": "1",
+        "upstream_slot": 0,
+        "controller": 5,
+        "type": "CLIP"
+      },
+      {
+        "downstream": 18,
+        "downstream_slot": 0,
+        "upstream": "1",
+        "upstream_slot": 0,
+        "controller": 5,
+        "type": "CLIP"
+      },
+      {
+        "downstream": 26,
+        "downstream_slot": 2,
+        "upstream": "2",
+        "upstream_slot": 2,
+        "controller": 12,
+        "type": "VAE"
+      },
+      {
+        "downstream": 26,
+        "downstream_slot": 3,
+        "upstream": "3",
+        "upstream_slot": 0,
+        "controller": 6,
+        "type": "IMAGE"
+      },
+      {
+        "downstream": 40,
+        "downstream_slot": 1,
+        "upstream": "2",
+        "upstream_slot": 2,
+        "controller": 12,
+        "type": "VAE"
+      },
+      {
+        "downstream": 41,
+        "downstream_slot": 1,
+        "upstream": "26",
+        "upstream_slot": 0,
+        "controller": 38,
+        "type": "CONDITIONING"
+      },
+      {
+        "downstream": 41,
+        "downstream_slot": 2,
+        "upstream": "26",
+        "upstream_slot": 1,
+        "controller": 38,
+        "type": "CONDITIONING"
+      },
+      {
+        "downstream": 41,
+        "downstream_slot": 3,
+        "upstream": "26",
+        "upstream_slot": 2,
+        "controller": 39,
+        "type": "LATENT"
+      },
+      {
+        "downstream": 51,
+        "downstream_slot": 0,
+        "upstream": "2",
+        "upstream_slot": 0,
+        "controller": 4,
+        "type": "MODEL"
+      }
+    ]
+  },
+  "version": 0.4
+}
