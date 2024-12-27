@@ -1,0 +1,634 @@
+{
+  "last_node_id": 201,
+  "last_link_id": 335,
+  "nodes": [
+    {
+      "id": 65,
+      "type": "VAEDecode",
+      "pos": [
+        1000,
+        80
+      ],
+      "size": [
+        200,
+        50
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 292,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 308,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            313
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 66,
+      "type": "SaveImage",
+      "pos": [
+        1000,
+        170
+      ],
+      "size": [
+        610,
+        490
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 313,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI_Sana"
+      ]
+    },
+    {
+      "id": 155,
+      "type": "KSampler",
+      "pos": [
+        600,
+        30
+      ],
+      "size": [
+        300,
+        480
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 300,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 305,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 304,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 317,
+          "slot_index": 3,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            292
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        642699604203845,
+        "randomize",
+        20,
+        4,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 164,
+      "type": "SanaCheckpointLoader",
+      "pos": [
+        -160,
+        -20
+      ],
+      "size": [
+        320,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            300
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "model"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SanaCheckpointLoader"
+      },
+      "widgets_values": [
+        "Sana\\Sana_1600M_1024px_MultiLing.pth",
+        "SanaMS_1600M_P1_D20"
+      ]
+    },
+    {
+      "id": 165,
+      "type": "SanaResolutionSelect",
+      "pos": [
+        -460,
+        170
+      ],
+      "size": [
+        280,
+        102
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            334
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "width"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            335
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "height"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SanaResolutionSelect"
+      },
+      "widgets_values": [
+        "SanaMS_1600M_P1_D20",
+        "1.00"
+      ]
+    },
+    {
+      "id": 167,
+      "type": "SanaTextEncode",
+      "pos": [
+        200,
+        290
+      ],
+      "size": [
+        340,
+        130
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "GEMMA",
+          "type": "GEMMA",
+          "link": 306,
+          "slot_index": 0,
+          "label": "GEMMA"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            305
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CONDITIONING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SanaTextEncode"
+      },
+      "widgets_values": [
+        "Realistic photography style, Asian woman with fair skin and straight, shoulder-length blonde hair with bangs. She wears a sleeveless black halter top that highlights her slender figure. Her expression is natural, with her mouth slightly open and her large brown eyes expressive. The background has a soft gray gradient on the left and a warm beige on the right, creating a neutral and elegant background. The lighting is soft and even, highlighting her facial features and the texture of her hair and clothing. The overall style of the photo is modern and simple, with a clean and uncluttered composition that focuses on the subject.",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 168,
+      "type": "SanaTextEncode",
+      "pos": [
+        190,
+        480
+      ],
+      "size": [
+        340,
+        90
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "GEMMA",
+          "type": "GEMMA",
+          "link": 307,
+          "label": "GEMMA"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            304
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CONDITIONING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SanaTextEncode"
+      },
+      "widgets_values": [
+        "photo, depth of field",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 169,
+      "type": "GemmaLoader",
+      "pos": [
+        -280,
+        360
+      ],
+      "size": [
+        330,
+        110
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "GEMMA",
+          "type": "GEMMA",
+          "links": [
+            306,
+            307
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "GEMMA"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GemmaLoader"
+      },
+      "widgets_values": [
+        "Efficient-Large-Model/gemma-2-2b-it",
+        "cpu",
+        "default"
+      ]
+    },
+    {
+      "id": 171,
+      "type": "ExtraVAELoader",
+      "pos": [
+        560,
+        560
+      ],
+      "size": [
+        380,
+        110
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            308
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ExtraVAELoader"
+      },
+      "widgets_values": [
+        "dc-ae-f32c32-sana-1.0-diffusers.safetensors",
+        "dcae-f32c32-sana-1.0-diffusers",
+        "FP16"
+      ]
+    },
+    {
+      "id": 176,
+      "type": "EmptySanaLatentImage",
+      "pos": [
+        300,
+        150
+      ],
+      "size": [
+        210,
+        80
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 334,
+          "widget": {
+            "name": "width"
+          },
+          "label": "width"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 335,
+          "widget": {
+            "name": "height"
+          },
+          "label": "height"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            317
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySanaLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 199,
+      "type": "easy int",
+      "pos": [
+        -80,
+        120
+      ],
+      "size": [
+        220,
+        60
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": null,
+          "label": "整数",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy int"
+      },
+      "widgets_values": [
+        1920
+      ]
+    },
+    {
+      "id": 200,
+      "type": "easy int",
+      "pos": [
+        -80,
+        220
+      ],
+      "size": [
+        220,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": null,
+          "label": "整数"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy int"
+      },
+      "widgets_values": [
+        1080
+      ]
+    },
+    {
+      "id": 201,
+      "type": "Note",
+      "pos": [
+        -480,
+        530
+      ],
+      "size": [
+        570,
+        350
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node： \nhttps://github.com/Efficient-Large-Model/ComfyUI_ExtraModels\nhttps://github.com/yolain/ComfyUI-Easy-Use\n\nmodels：\nComfyUI\\models\\checkpoints\nhttps://huggingface.co/Efficient-Large-Model/Sana_1600M_1024px_MultiLing\n-------------------\nComfyUI\\models\\VAE\\\nhttps://huggingface.co/mit-han-lab/dc-ae-f32c32-sana-1.0-diffusers/tree/main\nhttps://huggingface.co/mit-han-lab/dc-ae-f32c32-sana-1.0/tree/main\n\ncloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97\n\nResources：\nhttps://github.com/NVlabs/Sana?tab=readme-ov-file\nhttps://nvlabs.github.io/Sana/\n"
+      ],
+      "color": "#c09430"
+    }
+  ],
+  "links": [
+    [
+      292,
+      155,
+      0,
+      65,
+      0,
+      "LATENT"
+    ],
+    [
+      300,
+      164,
+      0,
+      155,
+      0,
+      "MODEL"
+    ],
+    [
+      304,
+      168,
+      0,
+      155,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      305,
+      167,
+      0,
+      155,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      306,
+      169,
+      0,
+      167,
+      0,
+      "GEMMA"
+    ],
+    [
+      307,
+      169,
+      0,
+      168,
+      0,
+      "GEMMA"
+    ],
+    [
+      308,
+      171,
+      0,
+      65,
+      1,
+      "VAE"
+    ],
+    [
+      313,
+      65,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      317,
+      176,
+      0,
+      155,
+      3,
+      "LATENT"
+    ],
+    [
+      334,
+      165,
+      0,
+      176,
+      0,
+      "INT"
+    ],
+    [
+      335,
+      165,
+      1,
+      176,
+      1,
+      "INT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0610764609500025,
+      "offset": [
+        673.7538607407045,
+        68.76683827210182
+      ]
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
