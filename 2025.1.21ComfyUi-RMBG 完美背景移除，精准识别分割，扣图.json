@@ -1,0 +1,1454 @@
+{
+  "last_node_id": 67,
+  "last_link_id": 59,
+  "nodes": [
+    {
+      "id": 43,
+      "type": "FashionSegmentClothing",
+      "pos": [
+        2728.141845703125,
+        547.5985107421875
+      ],
+      "size": [
+        330,
+        606
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 59,
+          "label": "images"
+        },
+        {
+          "name": "accessories_options",
+          "type": "ACCESSORIES_OPTIONS",
+          "link": 38,
+          "label": "accessories_options"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            39
+          ],
+          "slot_index": 0,
+          "label": "images"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            40
+          ],
+          "slot_index": 1,
+          "label": "mask"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FashionSegmentClothing",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        512,
+        1024,
+        0,
+        0,
+        "Alpha",
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 44,
+      "type": "FashionSegmentAccessories",
+      "pos": [
+        2358.141845703125,
+        617.5985107421875
+      ],
+      "size": [
+        327.5999755859375,
+        730
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "accessories_options",
+          "type": "ACCESSORIES_OPTIONS",
+          "links": [
+            38
+          ],
+          "slot_index": 0,
+          "label": "accessories_options"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FashionSegmentAccessories",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 45,
+      "type": "PreviewImage",
+      "pos": [
+        3078.141845703125,
+        547.5985107421875
+      ],
+      "size": [
+        458.624267578125,
+        695.9473876953125
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 39,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 46,
+      "type": "MaskPreview+",
+      "pos": [
+        3548.141845703125,
+        547.5985107421875
+      ],
+      "size": [
+        453.11077880859375,
+        701.44873046875
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 40,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 47,
+      "type": "PreviewImage",
+      "pos": [
+        779.4888916015625,
+        541.7357788085938
+      ],
+      "size": [
+        547.9050903320312,
+        841.6536865234375
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 41,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 48,
+      "type": "LoadImage",
+      "pos": [
+        -117.08683013916016,
+        541.7357788085938
+      ],
+      "size": [
+        500.135009765625,
+        843.2097778320312
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "1387816-4.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "ClothesSegment",
+      "pos": [
+        425.2286376953125,
+        541.7357788085938
+      ],
+      "size": [
+        316.5355224609375,
+        606
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 42,
+          "label": "images"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "slot_index": 0,
+          "label": "images"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            43
+          ],
+          "slot_index": 1,
+          "label": "mask"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ClothesSegment",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        1024,
+        0,
+        0,
+        "Alpha",
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 50,
+      "type": "MaskPreview+",
+      "pos": [
+        1331.870849609375,
+        541.7357788085938
+      ],
+      "size": [
+        558.095947265625,
+        842.8574829101562
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 43,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 51,
+      "type": "Segment",
+      "pos": [
+        2721.995361328125,
+        2303.902587890625
+      ],
+      "size": [
+        362.8153381347656,
+        268.76727294921875
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 44,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            52
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            53
+          ],
+          "slot_index": 1,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Segment",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "hair",
+        "sam_vit_h (2.56GB)",
+        "GroundingDINO_SwinB (938MB)",
+        0.35000000000000003,
+        0,
+        -1,
+        "Alpha",
+        false,
+        [
+          false,
+          true
+        ]
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 52,
+      "type": "LoadImage",
+      "pos": [
+        -117.25965881347656,
+        1483.9000244140625
+      ],
+      "size": [
+        873.5347900390625,
+        1336.077392578125
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            44,
+            45,
+            54,
+            55,
+            58
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "da81ab0fb162457d8f73b235b57ab13f.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 53,
+      "type": "Segment",
+      "pos": [
+        2721.995361328125,
+        1483.9000244140625
+      ],
+      "size": [
+        362.8153381347656,
+        268.76727294921875
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 45,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            46
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            47
+          ],
+          "slot_index": 1,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Segment",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "tank top",
+        "sam_vit_b (375MB)",
+        "GroundingDINO_SwinT_OGC (694MB)",
+        0.35000000000000003,
+        0,
+        0,
+        "Alpha",
+        false,
+        [
+          false,
+          true
+        ]
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 54,
+      "type": "PreviewImage",
+      "pos": [
+        3121.995361328125,
+        1483.9000244140625
+      ],
+      "size": [
+        500.47747802734375,
+        777.9617919921875
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 46,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 55,
+      "type": "MaskPreview+",
+      "pos": [
+        3621.9951171875,
+        1483.9000244140625
+      ],
+      "size": [
+        480.5656433105469,
+        777.9617309570312
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 47,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 56,
+      "type": "MaskPreview+",
+      "pos": [
+        5001.9951171875,
+        1483.9000244140625
+      ],
+      "size": [
+        480.5656433105469,
+        777.9617309570312
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 48,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 57,
+      "type": "PreviewImage",
+      "pos": [
+        4501.9951171875,
+        1483.9000244140625
+      ],
+      "size": [
+        500.47747802734375,
+        777.9617919921875
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 49,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 58,
+      "type": "PreviewImage",
+      "pos": [
+        4501.9951171875,
+        2303.902587890625
+      ],
+      "size": [
+        500.47747802734375,
+        777.9617919921875
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 50,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 59,
+      "type": "MaskPreview+",
+      "pos": [
+        5001.9951171875,
+        2303.902587890625
+      ],
+      "size": [
+        480.5656433105469,
+        777.9617309570312
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 51,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 60,
+      "type": "PreviewImage",
+      "pos": [
+        3121.995361328125,
+        2303.902587890625
+      ],
+      "size": [
+        500.47747802734375,
+        777.9617919921875
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 52,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 61,
+      "type": "MaskPreview+",
+      "pos": [
+        3621.9951171875,
+        2303.902587890625
+      ],
+      "size": [
+        480.5656433105469,
+        777.9617309570312
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 53,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 62,
+      "type": "Segment",
+      "pos": [
+        4121.9951171875,
+        1483.9000244140625
+      ],
+      "size": [
+        362.8153381347656,
+        268.76727294921875
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 54,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            49
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            48
+          ],
+          "slot_index": 1,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Segment",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "cell phone",
+        "sam_vit_b (375MB)",
+        "GroundingDINO_SwinT_OGC (694MB)",
+        0.35000000000000003,
+        0,
+        0,
+        "Alpha",
+        false,
+        [
+          false,
+          true
+        ]
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 63,
+      "type": "Segment",
+      "pos": [
+        4121.9951171875,
+        2303.902587890625
+      ],
+      "size": [
+        362.8153381347656,
+        268.76727294921875
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 55,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            50
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            51
+          ],
+          "slot_index": 1,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Segment",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "Face mask",
+        "sam_vit_b (375MB)",
+        "GroundingDINO_SwinT_OGC (694MB)",
+        0.35000000000000003,
+        0,
+        0,
+        "Alpha",
+        false,
+        [
+          false,
+          true
+        ]
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 64,
+      "type": "PreviewImage",
+      "pos": [
+        1011.9928588867188,
+        1483.9000244140625
+      ],
+      "size": [
+        843.1275634765625,
+        1259.364501953125
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 56,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 65,
+      "type": "MaskPreview+",
+      "pos": [
+        1863.757568359375,
+        1483.9000244140625
+      ],
+      "size": [
+        840.6404418945312,
+        1252.5174560546875
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 57,
+          "label": "遮罩"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "MaskPreview+",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 66,
+      "type": "RMBG",
+      "pos": [
+        767.835205078125,
+        1483.9000244140625
+      ],
+      "size": [
+        231.7894744873047,
+        246
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 58,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            56
+          ],
+          "slot_index": 0,
+          "label": "image"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            57
+          ],
+          "slot_index": 1,
+          "label": "mask"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RMBG",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "RMBG-2.0",
+        1,
+        1024,
+        0,
+        0,
+        "Alpha",
+        false,
+        "on"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 67,
+      "type": "LoadImage",
+      "pos": [
+        1932.682373046875,
+        551.3718872070312
+      ],
+      "size": [
+        414.42791748046875,
+        833.3876342773438
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            59
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "u=2362645131,251553534&fm=30&app=106&f=JPEG.jpg",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      38,
+      44,
+      0,
+      43,
+      1,
+      "ACCESSORIES_OPTIONS"
+    ],
+    [
+      39,
+      43,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      43,
+      1,
+      46,
+      0,
+      "MASK"
+    ],
+    [
+      41,
+      49,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      48,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      49,
+      1,
+      50,
+      0,
+      "MASK"
+    ],
+    [
+      44,
+      52,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      52,
+      0,
+      53,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      53,
+      0,
+      54,
+      0,
+      "IMAGE"
+    ],
+    [
+      47,
+      53,
+      1,
+      55,
+      0,
+      "MASK"
+    ],
+    [
+      48,
+      62,
+      1,
+      56,
+      0,
+      "MASK"
+    ],
+    [
+      49,
+      62,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      50,
+      63,
+      0,
+      58,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      63,
+      1,
+      59,
+      0,
+      "MASK"
+    ],
+    [
+      52,
+      51,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      53,
+      51,
+      1,
+      61,
+      0,
+      "MASK"
+    ],
+    [
+      54,
+      52,
+      0,
+      62,
+      0,
+      "IMAGE"
+    ],
+    [
+      55,
+      52,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      66,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      57,
+      66,
+      1,
+      65,
+      0,
+      "MASK"
+    ],
+    [
+      58,
+      52,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      67,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Fashion and accessories Segment",
+      "bounding": [
+        1920,
+        470,
+        2093.11083984375,
+        934.545654296875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Clothes Segment",
+      "bounding": [
+        -130,
+        470,
+        2032.55078125,
+        928.422119140625
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Object Segment",
+      "bounding": [
+        -130,
+        1410,
+        5619.8203125,
+        1681.564208984375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6588450000000006,
+      "offset": [
+        882.8231954866806,
+        -402.74637608050534
+      ]
+    },
+    "node_versions": {
+      "comfyui-rmbg": "1.5.0",
+      "comfy-core": "0.3.10",
+      "ComfyUI_essentials": "33ff89fd354d8ec3ab6affb605a79a931b445d99"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
