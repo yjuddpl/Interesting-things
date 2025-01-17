@@ -1,0 +1,822 @@
+{
+  "last_node_id": 75,
+  "last_link_id": 176,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        897.5560913085938,
+        186.3088836669922
+      ],
+      "size": [
+        315,
+        474
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 154,
+          "label": "模型"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 153,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 52,
+          "label": "负面条件"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 176,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            155
+          ],
+          "slot_index": 0,
+          "label": "Latent"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        728313089528835,
+        "randomize",
+        20,
+        1,
+        "euler",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        410,
+        360
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 75,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            52
+          ],
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "The video captures a series of frames showing ugly scenes, static with no motion, motion blur, over-saturation, shaky footage, low resolution, grainy texture, pixelated images, poorly lit areas, underexposed and overexposed scenes, poor color balance, washed out colors, choppy sequences, jerky movements, low frame rate, artifacting, color banding, unnatural transitions, outdated special effects, fake elements, unconvincing visuals, poorly edited content, jump cuts, visual noise, and flickering. Overall, the video is of poor quality.",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 37,
+      "type": "UNETLoader",
+      "pos": [
+        -90.0479507446289,
+        138.8304901123047
+      ],
+      "size": [
+        449.0776062011719,
+        84.0733642578125
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            154
+          ],
+          "slot_index": 0,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "Cosmos\\Cosmos-1.0-Diffusion-7B-Video2World.pt",
+        "default"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        -80.25523376464844,
+        300.4093322753906
+      ],
+      "size": [
+        397.93463134765625,
+        82
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            75,
+            99
+          ],
+          "slot_index": 0,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "Cosmos\\oldt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "cosmos",
+        "default"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "VAELoader",
+      "pos": [
+        -66.73345184326172,
+        460.8561706542969
+      ],
+      "size": [
+        370.6024169921875,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            156,
+            172
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "Cosmos\\cosmos_cv8x8x8_1.0.safetensors"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "CLIPTextEncode",
+      "pos": [
+        413.512939453125,
+        85.6485595703125
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 99,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            153
+          ],
+          "slot_index": 0,
+          "label": "条件"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A humanoid robot is showcased in a minimalistic setting, standing on a reflective black surface against a plain dark background. The robot is predominantly white with black accents, featuring a sleek, futuristic design. Its head is rounded with a smooth surface, and it has a pair of blue, triangular eyes that give it an expressive appearance. The robot's torso is compact, with a rectangular black panel in the center, possibly indicating a display or sensor area. Its arms are articulated, with visible joints at the shoulders, elbows, and wrists, allowing for a range of motion. The hands are designed with three fingers, suggesting a capability for basic grasping or gesturing. The robot's legs are sturdy, with visible joints at the hips, knees, and ankles, providing stability and mobility. Throughout the video, the robot remains stationary, maintaining a slightly bent posture with its right arm raised and left arm lowered, as if in a welcoming or waving gesture. The camera remains static, focusing on the robot, highlighting its design and features without any movement or zoom. The lighting is soft, casting subtle shadows that enhance the robot's contours and the reflective surface beneath it, creating a clean and modern aesthetic.",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 60,
+      "type": "VAEDecodeTiled",
+      "pos": [
+        1260,
+        190
+      ],
+      "size": [
+        210,
+        150
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 155,
+          "label": "Latent"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 156,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            157
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeTiled",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        128,
+        32,
+        32,
+        4
+      ]
+    },
+    {
+      "id": 61,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1507.4776611328125,
+        171.85826110839844
+      ],
+      "size": [
+        428.3721008300781,
+        572.2042846679688
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 157,
+          "label": "图像"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7,
+          "label": "音频"
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7,
+          "label": "批次管理"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "label": "文件名"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "Cosmos-cf",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Cosmos-cf_00006.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "Cosmos-cf_00006.png",
+            "fullpath": "E:\\ComfyUI-aki-2.8.0\\output\\Cosmos-cf_00006.mp4"
+          },
+          "muted": false
+        }
+      }
+    },
+    {
+      "id": 66,
+      "type": "Note",
+      "pos": [
+        -300,
+        570
+      ],
+      "size": [
+        660,
+        500
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "cloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97\n\nhttps://www.nvidia.com/en-us/ai/cosmos/\n\nhttps://github.com/NVIDIA/Cosmos\n\nhttps://research.nvidia.com/labs/dir/cosmos1/\n\nhttps://huggingface.co/nvidia/Cosmos-1.0-Diffusion-7B-Text2World\nhttps://huggingface.co/nvidia/Cosmos-1.0-Diffusion-14B-Text2World\n\n\nhttps://huggingface.co/nvidia/Cosmos-1.0-Diffusion-7B-Video2World\nhttps://huggingface.co/nvidia/Cosmos-1.0-Diffusion-14B-Video2World\n\nhttps://huggingface.co/mcmonkey/cosmos-1.0/tree/main\n\nhttps://huggingface.co/comfyanonymous/cosmos_1.0_text_encoder_and_VAE_ComfyUI/tree/main/vae\n\nhttps://huggingface.co/comfyanonymous/cosmos_1.0_text_encoder_and_VAE_ComfyUI/tree/main/text_encoders"
+      ],
+      "color": "#c09430"
+    },
+    {
+      "id": 69,
+      "type": "LoadImage",
+      "pos": [
+        -310,
+        1120
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            164
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00296_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 70,
+      "type": "LoadImage",
+      "pos": [
+        60,
+        1120
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            167
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00297_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "ImageScale",
+      "pos": [
+        -290,
+        1500
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 164,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            173
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1280,
+        704,
+        "disabled"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "ImageScale",
+      "pos": [
+        70,
+        1500
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 167,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            174
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1280,
+        704,
+        "disabled"
+      ]
+    },
+    {
+      "id": 74,
+      "type": "CosmosImageToVideoLatent",
+      "pos": [
+        460,
+        1140
+      ],
+      "size": [
+        315,
+        170
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 172,
+          "label": "vae"
+        },
+        {
+          "name": "start_image",
+          "type": "IMAGE",
+          "link": 173,
+          "shape": 7,
+          "label": "start_image"
+        },
+        {
+          "name": "end_image",
+          "type": "IMAGE",
+          "link": 174,
+          "shape": 7,
+          "label": "end_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [],
+          "label": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CosmosImageToVideoLatent"
+      },
+      "widgets_values": [
+        1280,
+        704,
+        121,
+        1
+      ]
+    },
+    {
+      "id": 75,
+      "type": "EmptyCosmosLatentVideo",
+      "pos": [
+        420,
+        600
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            176
+          ],
+          "slot_index": 0,
+          "label": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyCosmosLatentVideo"
+      },
+      "widgets_values": [
+        1280,
+        704,
+        121,
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      52,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      75,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      99,
+      38,
+      0,
+      42,
+      0,
+      "CLIP"
+    ],
+    [
+      153,
+      42,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      154,
+      37,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      155,
+      3,
+      0,
+      60,
+      0,
+      "LATENT"
+    ],
+    [
+      156,
+      39,
+      0,
+      60,
+      1,
+      "VAE"
+    ],
+    [
+      157,
+      60,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      164,
+      69,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      167,
+      70,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      172,
+      39,
+      0,
+      74,
+      0,
+      "VAE"
+    ],
+    [
+      173,
+      71,
+      0,
+      74,
+      1,
+      "IMAGE"
+    ],
+    [
+      174,
+      73,
+      0,
+      74,
+      2,
+      "IMAGE"
+    ],
+    [
+      176,
+      75,
+      0,
+      3,
+      3,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9646149645000008,
+      "offset": [
+        323.4374696311788,
+        -46.953978218632884
+      ]
+    },
+    "workspace_info": {
+      "id": "b663115d-5c84-4eba-b58b-e326d065072a",
+      "saveLock": false,
+      "cloudID": null,
+      "coverMediaPath": null
+    },
+    "node_versions": {
+      "comfy-core": "0.3.10",
+      "ComfyUI-VideoHelperSuite": "c47b10ca1798b4925ff5a5f07d80c51ca80a837d"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
