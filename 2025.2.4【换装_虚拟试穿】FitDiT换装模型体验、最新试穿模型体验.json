@@ -1,0 +1,542 @@
+{
+  "last_node_id": 18,
+  "last_link_id": 14,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "FitDiTMaskGenerator",
+      "pos": [
+        -375.2276306152344,
+        203.31417846679688
+      ],
+      "size": [
+        315,
+        194
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "FITDIT_MODEL",
+          "link": 12,
+          "label": "model"
+        },
+        {
+          "name": "vton_image",
+          "type": "IMAGE",
+          "link": 2,
+          "label": "vton_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "masked_image",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "slot_index": 0,
+          "label": "masked_image"
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "links": [
+            4,
+            7
+          ],
+          "slot_index": 1,
+          "label": "mask"
+        },
+        {
+          "name": "pose_image",
+          "type": "IMAGE",
+          "links": [
+            5,
+            8
+          ],
+          "slot_index": 2,
+          "label": "pose_image"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FitDiTMaskGenerator"
+      },
+      "widgets_values": [
+        "Upper-body",
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "type": "FitDiTTryOn",
+      "pos": [
+        370.2103271484375,
+        190.16514587402344
+      ],
+      "size": [
+        315,
+        258
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "FITDIT_MODEL",
+          "link": 13,
+          "label": "model"
+        },
+        {
+          "name": "vton_image",
+          "type": "IMAGE",
+          "link": 9,
+          "label": "vton_image"
+        },
+        {
+          "name": "garm_image",
+          "type": "IMAGE",
+          "link": 10,
+          "label": "garm_image"
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "link": 7,
+          "label": "mask"
+        },
+        {
+          "name": "pose_image",
+          "type": "IMAGE",
+          "link": 8,
+          "label": "pose_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "slot_index": 0,
+          "label": "result"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FitDiTTryOn"
+      },
+      "widgets_values": [
+        20,
+        2,
+        137,
+        "randomize",
+        1,
+        "768x1024"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        -920.228759765625,
+        788.4578247070312
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            14
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "s1.png",
+        "image"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": [
+        -922.4596557617188,
+        421.64849853515625
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2,
+            9
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "model_fullbody_1.png",
+        "image"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "PreviewImage",
+      "pos": [
+        510,
+        530
+      ],
+      "size": [
+        296.26910400390625,
+        246
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "PreviewImage",
+      "pos": [
+        -486.33416748046875,
+        540.9697265625
+      ],
+      "size": [
+        296.26910400390625,
+        246
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "PreviewImage",
+      "pos": [
+        -120.2568588256836,
+        537.1773681640625
+      ],
+      "size": [
+        296.26910400390625,
+        246
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "PreviewImage",
+      "pos": [
+        -490,
+        850
+      ],
+      "size": [
+        296.26910400390625,
+        246
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "FitDiTLoader",
+      "pos": [
+        -920.2726440429688,
+        191.14793395996094
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "FITDIT_MODEL",
+          "links": [
+            12,
+            13
+          ],
+          "slot_index": 0,
+          "label": "model"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FitDiTLoader"
+      },
+      "widgets_values": [
+        "cuda",
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 17,
+      "type": "PreviewImage",
+      "pos": [
+        240,
+        530
+      ],
+      "size": [
+        250,
+        250
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 18,
+      "type": "Note",
+      "pos": [
+        -1460,
+        180
+      ],
+      "size": [
+        530,
+        540
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node： \nhttps://github.com/BoyuanJiang/FitDiT/tree/FitDiT-ComfyUI\n\nmodels：\n--FitDiT--\nComfyUI/models/FitDiT_models\nhttps://huggingface.co/BoyuanJiang/FitDiT/tree/main\n--clip--\nComfyUI/models/clip\nclip-vit-large-patch14\nhttps://huggingface.co/openai/clip-vit-large-patch14/tree/main\nCLIP-ViT-bigG-14\nhttps://huggingface.co/laion/CLIP-ViT-bigG-14-laion2B-39B-b160k/tree/main\n\ncloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97"
+      ],
+      "color": "#c09430"
+    }
+  ],
+  "links": [
+    [
+      2,
+      6,
+      0,
+      3,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      3,
+      1,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      3,
+      2,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      3,
+      1,
+      4,
+      3,
+      "IMAGE"
+    ],
+    [
+      8,
+      3,
+      2,
+      4,
+      4,
+      "IMAGE"
+    ],
+    [
+      9,
+      6,
+      0,
+      4,
+      1,
+      "IMAGE"
+    ],
+    [
+      10,
+      5,
+      0,
+      4,
+      2,
+      "IMAGE"
+    ],
+    [
+      11,
+      4,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      16,
+      0,
+      3,
+      0,
+      "FITDIT_MODEL"
+    ],
+    [
+      13,
+      16,
+      0,
+      4,
+      0,
+      "FITDIT_MODEL"
+    ],
+    [
+      14,
+      5,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9646149645000028,
+      "offset": [
+        1542.0885851091286,
+        -63.39918846045823
+      ]
+    },
+    "node_versions": {
+      "FitDiT-ComfyUI": "17215e36598123b792b4de050511e76c939793b8",
+      "comfy-core": "0.3.12"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
