@@ -1,0 +1,569 @@
+{
+  "last_node_id": 31,
+  "last_link_id": 49,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "JanusModelLoader",
+      "pos": [
+        -300,
+        -290
+      ],
+      "size": [
+        315,
+        102
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "JANUS_MODEL",
+          "links": [
+            37,
+            40
+          ],
+          "slot_index": 0,
+          "label": "model"
+        },
+        {
+          "name": "processor",
+          "type": "JANUS_PROCESSOR",
+          "links": [
+            38,
+            41
+          ],
+          "slot_index": 1,
+          "label": "processor"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JanusModelLoader"
+      },
+      "widgets_values": [
+        "deepseek-ai/Janus-Pro-7B"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "PreviewImage",
+      "pos": [
+        560,
+        -350
+      ],
+      "size": [
+        420,
+        290
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 39,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 19,
+      "type": "LoadImage",
+      "pos": [
+        -300,
+        -110
+      ],
+      "size": [
+        320,
+        320
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42,
+            48
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "512.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "ShowText|pysssss",
+      "pos": [
+        540,
+        10
+      ],
+      "size": [
+        430,
+        240
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 43,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "The image depicts a cartoonish, anthropomorphic character with exaggerated features. The character has white hair styled upwards and a full white beard. They are wearing a pair of rectangular glasses. The character is dressed in a white short-sleeved shirt, dark brown shorts, and black knee-high socks. They are also wearing brown shoes. The character has suspenders over the shirt and a red scarf or bandana around the neck. The overall style is playful and humorous, with a focus on the character's expressive face and body language."
+      ]
+    },
+    {
+      "id": 24,
+      "type": "JanusImageGeneration",
+      "pos": [
+        90,
+        -340
+      ],
+      "size": [
+        400,
+        265
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "JANUS_MODEL",
+          "link": 37,
+          "label": "model"
+        },
+        {
+          "name": "processor",
+          "type": "JANUS_PROCESSOR",
+          "link": 38,
+          "label": "processor"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            39
+          ],
+          "label": "images"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JanusImageGeneration"
+      },
+      "widgets_values": [
+        "Imagine a delicate purple crocus passing through a glittering snow on a quiet open field. The soft light of twilight illuminates the scene, layered in golden and lavender tones. In the distance, a mysterious forest was shrouded in a soft mist, and towering trees were dotted with a faint frost. The composition is rendered as a meticulous oil painting that captures the tranquil magic of nature's resilience and the promise of spring.",
+        613299350692455,
+        "fixed",
+        1,
+        5,
+        1,
+        0.95,
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 25,
+      "type": "JanusImageUnderstanding",
+      "pos": [
+        100,
+        10
+      ],
+      "size": [
+        400,
+        236
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "JANUS_MODEL",
+          "link": 40,
+          "label": "model"
+        },
+        {
+          "name": "processor",
+          "type": "JANUS_PROCESSOR",
+          "link": 41,
+          "label": "processor"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 42,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            43
+          ],
+          "slot_index": 0,
+          "label": "text"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JanusImageUnderstanding"
+      },
+      "widgets_values": [
+        "Describe this image in detail.",
+        536756509123430,
+        "randomize",
+        0.1,
+        0.95,
+        512,
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 28,
+      "type": "ShowText|pysssss",
+      "pos": [
+        550,
+        340
+      ],
+      "size": [
+        430,
+        240
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 49,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "The image shows an animated cartoon of a man with glasses and a beard wearing a white shirt, black pants, and brown shoes against a white background."
+      ]
+    },
+    {
+      "id": 29,
+      "type": "Florence2Run",
+      "pos": [
+        120,
+        340
+      ],
+      "size": [
+        350,
+        357
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 48,
+          "label": "图像"
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 47,
+          "label": "Florence2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null,
+          "label": "图像"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            49
+          ],
+          "slot_index": 2,
+          "label": "caption"
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null,
+          "label": "json数据"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "",
+        "detailed_caption",
+        true,
+        false,
+        1024,
+        3,
+        true,
+        "",
+        390890082061622,
+        "randomize",
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "id": 30,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        -140,
+        340
+      ],
+      "size": [
+        230,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null,
+          "shape": 7,
+          "label": "LoRA"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            47
+          ],
+          "label": "Florence2"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
+      },
+      "widgets_values": [
+        "microsoft/Florence-2-base",
+        "fp16",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "Note",
+      "pos": [
+        -660,
+        280
+      ],
+      "size": [
+        460,
+        380
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node： \nhttps://github.com/CY-CHENYUE/ComfyUI-Janus-Pro\nhttps://github.com/spacepxl/ComfyUI-Florence-2\n\nmodels：\nComfyUI\\models\\Janus-Pro\nhttps://huggingface.co/deepseek-ai/Janus-Pro-1B\nhttps://huggingface.co/deepseek-ai/Janus-Pro-7B\n\n\ncloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97"
+      ],
+      "color": "#c09430",
+      "bgcolor": "rgba(24,24,27,.9)"
+    }
+  ],
+  "links": [
+    [
+      37,
+      10,
+      0,
+      24,
+      0,
+      "JANUS_MODEL"
+    ],
+    [
+      38,
+      10,
+      1,
+      24,
+      1,
+      "JANUS_PROCESSOR"
+    ],
+    [
+      39,
+      24,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      10,
+      0,
+      25,
+      0,
+      "JANUS_MODEL"
+    ],
+    [
+      41,
+      10,
+      1,
+      25,
+      1,
+      "JANUS_PROCESSOR"
+    ],
+    [
+      42,
+      19,
+      0,
+      25,
+      2,
+      "IMAGE"
+    ],
+    [
+      43,
+      25,
+      0,
+      21,
+      0,
+      "STRING"
+    ],
+    [
+      47,
+      30,
+      0,
+      29,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      48,
+      19,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      49,
+      29,
+      2,
+      28,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.2839025177495014,
+      "offset": {
+        "0": 704.60302734375,
+        "1": 328.92694091796875
+      }
+    },
+    "workspace_info": {
+      "id": "fmD__XZpFj36_jkuHASUE"
+    },
+    "node_versions": {
+      "comfy-core": "0.3.14",
+      "janus-pro": "1.0.0",
+      "ComfyUI-Custom-Scripts": "a53ef9b617ed1331640d7a2cd97644995908dc00",
+      "ComfyUI-Florence2": "dffd12506d50f0540b8a7f4b36a05d4fb5fed2de"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
