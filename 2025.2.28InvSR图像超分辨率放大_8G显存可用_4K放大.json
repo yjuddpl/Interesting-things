@@ -1,0 +1,233 @@
+{
+  "last_node_id": 28,
+  "last_link_id": 40,
+  "nodes": [
+    {
+      "id": 17,
+      "type": "LoadImage",
+      "pos": [
+        -867.9894409179688,
+        918.590087890625
+      ],
+      "size": [
+        367.18212890625,
+        439.6049499511719
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ],
+          "slot_index": 0,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00885_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "LoadInvSRModels",
+      "pos": [
+        -877.6565551757812,
+        719.943603515625
+      ],
+      "size": [
+        413.84686279296875,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "invsr_pipe",
+          "type": "INVSR_PIPE",
+          "links": [
+            38
+          ],
+          "slot_index": 0,
+          "label": "invsr_pipe"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadInvSRModels"
+      },
+      "widgets_values": [
+        "stabilityai/sd-turbo",
+        "noise_predictor_sd_turbo_v5.pth",
+        "bf16",
+        true
+      ]
+    },
+    {
+      "id": 26,
+      "type": "PreviewImage",
+      "pos": [
+        30,
+        660
+      ],
+      "size": [
+        889.1287231445312,
+        869.5750732421875
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 39,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 27,
+      "type": "InvSRSampler",
+      "pos": [
+        -360,
+        760
+      ],
+      "size": [
+        315,
+        246
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "invsr_pipe",
+          "type": "INVSR_PIPE",
+          "link": 38,
+          "label": "invsr_pipe"
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 40,
+          "label": "images"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            39
+          ],
+          "slot_index": 0,
+          "label": "image"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvSRSampler"
+      },
+      "widgets_values": [
+        1,
+        5,
+        1,
+        8,
+        128,
+        "wavelet",
+        370946428,
+        "randomize"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "Note",
+      "pos": [
+        -480,
+        1050
+      ],
+      "size": [
+        500,
+        420
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node： \nhttps://github.com/yuvraj108c/ComfyUI_InvSR\n\nmodels：\nComfyUI/models/diffusers\nhttps://huggingface.co/stabilityai/sd-turbo/tree/main\n----------------\nComfyUI/models/invsr\nhttps://huggingface.co/OAOA/InvSR/blob/28e96115e767c699f2e40a85d04a8f5ebf0a685e/noise_predictor_sd_turbo_v5.pth\n\ncloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97\n\n"
+      ],
+      "color": "#c09430",
+      "bgcolor": "rgba(24,24,27,.9)"
+    }
+  ],
+  "links": [
+    [
+      38,
+      25,
+      0,
+      27,
+      0,
+      "INVSR_PIPE"
+    ],
+    [
+      39,
+      27,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      17,
+      0,
+      27,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8769226950000019,
+      "offset": {
+        "0": 1040.2808837890625,
+        "1": -508.7853088378906
+      }
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "node_versions": {
+      "ComfyUI_InvSR": "ad0ff356e09dbd8eb6f7731ef2c140bfc5b39c32",
+      "comfy-core": "0.3.14"
+    },
+    "ue_links": [],
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
