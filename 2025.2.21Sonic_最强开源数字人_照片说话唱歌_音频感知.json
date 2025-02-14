@@ -1,0 +1,609 @@
+{
+  "last_node_id": 62,
+  "last_link_id": 113,
+  "nodes": [
+    {
+      "id": 52,
+      "type": "SONICSampler",
+      "pos": [
+        26204.775390625,
+        -1422.4134521484375
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL_SONIC",
+          "link": 112,
+          "label": "model"
+        },
+        {
+          "name": "data_dict",
+          "type": "SONIC_PREDATA",
+          "link": 107,
+          "label": "data_dict"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            100
+          ],
+          "slot_index": 0,
+          "label": "image"
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            102
+          ],
+          "slot_index": 1,
+          "label": "fps"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SONICSampler"
+      },
+      "widgets_values": [
+        1708308976,
+        "randomize",
+        25,
+        1,
+        25
+      ]
+    },
+    {
+      "id": 54,
+      "type": "ImageOnlyCheckpointLoader",
+      "pos": [
+        24730,
+        -1470
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            111
+          ],
+          "slot_index": 0,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP_VISION",
+          "type": "CLIP_VISION",
+          "links": [
+            103
+          ],
+          "slot_index": 1,
+          "label": "CLIP视觉"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            104,
+            113
+          ],
+          "slot_index": 2,
+          "label": "VAE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageOnlyCheckpointLoader"
+      },
+      "widgets_values": [
+        "svd_xt_1_1.safetensors"
+      ]
+    },
+    {
+      "id": 55,
+      "type": "LoadAudio",
+      "pos": [
+        25340,
+        -1330
+      ],
+      "size": [
+        315,
+        124
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            101,
+            105
+          ],
+          "label": "音频"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "sing_female_rap_10s.MP3",
+        null,
+        ""
+      ]
+    },
+    {
+      "id": 56,
+      "type": "LoadImage",
+      "pos": [
+        25340,
+        -1130
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            106
+          ],
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_temp_xatxo_00001_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 57,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        26659.001953125,
+        -1371.1563720703125
+      ],
+      "size": [
+        315,
+        639
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 100,
+          "shape": 7,
+          "label": "图像"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 101,
+          "shape": 7,
+          "label": "音频"
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7,
+          "label": "批次管理"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 102,
+          "widget": {
+            "name": "frame_rate"
+          },
+          "label": "帧率"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "label": "文件名"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 1,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00008-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "AnimateDiff_00008.png",
+            "fullpath": "E:\\ComfyUI-aki-2.8.0\\output\\AnimateDiff_00008-audio.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 58,
+      "type": "SONIC_PreData",
+      "pos": [
+        25815.453125,
+        -1266.9522705078125
+      ],
+      "size": [
+        315,
+        166
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": 103,
+          "label": "clip_vision"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 104,
+          "label": "vae"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 105,
+          "label": "audio"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 106,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data_dict",
+          "type": "SONIC_PREDATA",
+          "links": [
+            107
+          ],
+          "slot_index": 0,
+          "label": "data_dict"
+        },
+        {
+          "name": "bbox",
+          "type": "BBOX",
+          "links": null,
+          "label": "bbox"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SONIC_PreData"
+      },
+      "widgets_values": [
+        512,
+        275,
+        0.5
+      ]
+    },
+    {
+      "id": 60,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        25050,
+        -1280
+      ],
+      "size": [
+        210,
+        310
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7,
+          "label": "批次管理"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 113,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "label": "图像"
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null,
+          "label": "帧计数"
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [],
+          "slot_index": 2,
+          "label": "音频"
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null,
+          "label": "视频信息"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "download (1).mp4",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "download (1).mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 61,
+      "type": "SONICTLoader",
+      "pos": [
+        25810,
+        -1470
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 111,
+          "label": "model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL_SONIC",
+          "links": [
+            112
+          ],
+          "label": "model"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SONICTLoader"
+      },
+      "widgets_values": [
+        "unet.pth",
+        1,
+        true,
+        "fp16"
+      ]
+    },
+    {
+      "id": 62,
+      "type": "Note",
+      "pos": [
+        24490,
+        -1290
+      ],
+      "size": [
+        530,
+        440
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node： \nhttps://github.com/Kosinkadink/ComfyUI-VideoHelperSuite\nhttps://github.com/smthemex/ComfyUI_Sonic\n\nmodels：\nComfyUI/models/sonic/\nhttps://drive.google.com/drive/folders/1oe8VTPUy0-MHHW2a_NJ1F8xL-0VN5G7W\nComfyUI/models/sonic/whisper-tiny/\nhttps://huggingface.co/openai/whisper-tiny/tree/main\n----------------\nComfyUI/models/checkpoints\nhttps://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt-1-1/tree/main\n\ncloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97\n\nResources：\nhttps://github.com/jixiaozhong/Sonic\nhttps://huggingface.co/spaces/xiaozhongji/Sonic"
+      ],
+      "color": "#c09430",
+      "bgcolor": "rgba(24,24,27,.9)"
+    }
+  ],
+  "links": [
+    [
+      100,
+      52,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      101,
+      55,
+      0,
+      57,
+      1,
+      "AUDIO"
+    ],
+    [
+      102,
+      52,
+      1,
+      57,
+      4,
+      "FLOAT"
+    ],
+    [
+      103,
+      54,
+      1,
+      58,
+      0,
+      "CLIP_VISION"
+    ],
+    [
+      104,
+      54,
+      2,
+      58,
+      1,
+      "VAE"
+    ],
+    [
+      105,
+      55,
+      0,
+      58,
+      2,
+      "AUDIO"
+    ],
+    [
+      106,
+      56,
+      0,
+      58,
+      3,
+      "IMAGE"
+    ],
+    [
+      107,
+      58,
+      0,
+      52,
+      1,
+      "SONIC_PREDATA"
+    ],
+    [
+      111,
+      54,
+      0,
+      61,
+      0,
+      "MODEL"
+    ],
+    [
+      112,
+      61,
+      0,
+      52,
+      0,
+      "MODEL_SONIC"
+    ],
+    [
+      113,
+      54,
+      2,
+      60,
+      1,
+      "VAE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7247295000000004,
+      "offset": {
+        "0": -24469.263671875,
+        "1": 1739.1861572265625
+      }
+    },
+    "node_versions": {
+      "ComfyUI_Sonic": "191b2f23658ff0fad3383ebdeef15e0d7b5ec7cf",
+      "comfy-core": "0.3.14",
+      "ComfyUI-VideoHelperSuite": "8629188458dc6cb832f871ece3bd273507e8a766"
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
