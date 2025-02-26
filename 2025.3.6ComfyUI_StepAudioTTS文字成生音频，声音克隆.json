@@ -1,0 +1,454 @@
+{
+  "last_node_id": 21,
+  "last_link_id": 18,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "SaveAudio",
+      "pos": [
+        940.4729614257812,
+        1775.550048828125
+      ],
+      "size": [
+        315,
+        100
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/ComfyUI",
+        ""
+      ]
+    },
+    {
+      "id": 7,
+      "type": "SaveAudio",
+      "pos": [
+        1138.2647705078125,
+        2149.4150390625
+      ],
+      "size": [
+        315,
+        100
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/ComfyUI",
+        ""
+      ]
+    },
+    {
+      "id": 9,
+      "type": "Note",
+      "pos": [
+        22.44321632385254,
+        1728.02197265625
+      ],
+      "size": [
+        367.756103515625,
+        281.47320556640625
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node： \nhttps://github.com/billwuhao/ComfyUI_StepAudioTTS?tab=readme-ov-file\nhttps://github.com/Kosinkadink/ComfyUI-VideoHelperSuite\n\nmodels：\nComfyUI\\models\\TTS\n├── Step-Audio-Tokenizer\n├── Step-Audio-TTS-3B\nhttps://pan.quark.cn/s/5a0ab8dfce6e#/list/share/c526aab8f7c84a73ac3749a889e95ab8-%E6%A8%A1%E5%9E%8B/2e4e6c9585b942b684065b5d5921aa0a-%E6%94%BEmodels%E7%9B%AE%E5%BD%95/bd3608a1de4f4f1186ea3a7f5a864583-TTS\nhttps://huggingface.co/stepfun-ai/Step-Audio-Tokenizer\nhttps://huggingface.co/stepfun-ai/Step-Audio-TTS-3B\n\ncloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "PreviewAudio",
+      "pos": [
+        940.4729614257812,
+        1925.550048828125
+      ],
+      "size": [
+        315,
+        76
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "link": 2
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 1,
+      "type": "StepAudioRun",
+      "pos": [
+        420.4732360839844,
+        1785.550048828125
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "links": [
+            1,
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "stepaudiotts_mw",
+        "ver": "4bea354a78a5081d5e5dc6598b5a044e96960615",
+        "Node name for S&R": "StepAudioRun"
+      },
+      "widgets_values": [
+        "你衬衫第二颗纽扣沾了咖啡渍，和那年图书馆洒在我论文上的形状一模一样。我练习过287次重逢的开场白，此刻全碎在喉咙里，只剩心跳震得胸腔发麻。",
+        "婷婷",
+        "悲伤1",
+        "粤语",
+        "None",
+        "None"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        34.380897521972656,
+        2164.283203125
+      ],
+      "size": [
+        210,
+        352
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "label": "图像",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "frame_count",
+          "label": "帧计数",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "links": null,
+          "slot_index": 2
+        },
+        {
+          "name": "video_info",
+          "label": "视频信息",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "1.5.2",
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "LoadAudio",
+      "pos": [
+        270.22625732421875,
+        2166.0126953125
+      ],
+      "size": [
+        315,
+        124
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "label": "音频",
+          "type": "AUDIO",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "talk_male_law_10s.wav",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "PreviewAudio",
+      "pos": [
+        1141.79931640625,
+        2331.22705078125
+      ],
+      "size": [
+        315,
+        76
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "StepAudioClone",
+      "pos": [
+        639.1123046875,
+        2165.14794921875
+      ],
+      "size": [
+        400,
+        246
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clone_audio",
+          "label": "clone_audio",
+          "type": "AUDIO",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "links": [
+            4,
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "stepaudiotts_mw",
+        "ver": "4bea354a78a5081d5e5dc6598b5a044e96960615",
+        "Node name for S&R": "StepAudioClone"
+      },
+      "widgets_values": [
+        "你衬衫第二颗纽扣沾了咖啡渍，和那年图书馆洒在我论文上的形状一模一样。我练习过287次重逢的开场白，此刻全碎在喉咙里，只剩心跳震得胸腔发麻。",
+        "Myvoice",
+        "我都一年没吃苹果了。到超市偷了一袋苹果。大家觉得赚不到钱。你一年没吃苹果，你就能偷苹果。",
+        "高兴1",
+        "中文",
+        "None",
+        "快速1"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "AUDIO"
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      0,
+      "AUDIO"
+    ],
+    [
+      3,
+      5,
+      0,
+      4,
+      0,
+      "AUDIO"
+    ],
+    [
+      4,
+      4,
+      0,
+      7,
+      0,
+      "AUDIO"
+    ],
+    [
+      5,
+      4,
+      0,
+      8,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "StepAudioTTS",
+      "bounding": [
+        410.4732360839844,
+        1701.9500732421875,
+        855,
+        309.6000061035156
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Clone",
+      "bounding": [
+        24.380901336669922,
+        2075.81494140625,
+        1451.842529296875,
+        450.4681701660156
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9646149645000012,
+      "offset": [
+        275.30937458883477,
+        -1642.6097362775506
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
