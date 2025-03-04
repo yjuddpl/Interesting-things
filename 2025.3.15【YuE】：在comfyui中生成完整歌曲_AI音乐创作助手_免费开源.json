@@ -1,0 +1,1172 @@
+{
+  "last_node_id": 25,
+  "last_link_id": 22,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        863,
+        186
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "label": "Latent",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        252032517418516,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        26,
+        474
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "label": "模型",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "label": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3,
+            5
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "label": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "v1-5-pruned-emaonly.ckpt"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [
+        473,
+        609
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "label": "Latent",
+          "type": "LATENT",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        415,
+        186
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "label": "CLIP",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "beautiful scenery nature glass bottle landscape, , purple galaxy bottle,",
+        true
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        413,
+        389
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "label": "CLIP",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark",
+        true
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1209,
+        188
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "label": "Latent",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "label": "图像",
+          "type": "IMAGE",
+          "links": [
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1451,
+        189
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "label": "图像",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "YUE_Stage_A_Sampler",
+      "pos": [
+        -5812.34033203125,
+        -1542.4715576171875
+      ],
+      "size": [
+        416.4161682128906,
+        589.5310668945312
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_A",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stage1_set",
+          "label": "stage1_set",
+          "type": "STAGE_SET",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "info",
+          "label": "info",
+          "type": "STRING",
+          "links": [
+            13
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_A_Sampler"
+      },
+      "widgets_values": [
+        "female Cantonese Melancholic Classical airy vocal Piano bright vocal Pop Nostalgic Violin",
+        "[verse]\n夕阳沉入海平面，暮色漫过指尖\n回忆反复重演，无处遮掩\n那些破碎诺言，划伤你侧脸\n我守在故事终点，拼凑散落章节\n\n[chorus]\n你途经的巷尾，有我踩旧的月光\n你仰望的星轨，倒映我未熄的渴望\n别再推开这滚烫\n我绝不让航向偏航\n听见心跳在回响\n我绝不让航向偏航\n\n[verse]\n世俗砌成围墙，笑我执迷如狂\n可他们不懂燎原野火怎样烧灼心脏\n脉搏里奔涌的烫，你名字的形状\n就算世界在塌方，也要接住你坠落方向\n\n[chorus]\n你途经的巷尾，有我踩旧的月光\n你仰望的星轨，倒映我未熄的渴望\n别再推开这滚烫\n我绝不让航向偏航\n听见心跳在回响\n我绝不让航向偏航\n\n[bridge]\n不后退不迂回，任暴雨穿透脊梁\n穿越所有无常，把永恒别在你衣角上\n当季风掠过山岗，掌心纹路生长\n我们的名字终将在尘埃里绽放\n\n[outro]\n你遗落的雨季，是我跋涉的疆场\n你途经的荒原，长出玫瑰色的汪洋\n别再推开这滚烫\n我绝不让航向偏航",
+        380669953,
+        "randomize",
+        2,
+        1.1,
+        0,
+        30,
+        3000,
+        true,
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 11,
+      "type": "YUE_Stage_A_Loader",
+      "pos": [
+        -6209.61376953125,
+        -1369.7724609375
+      ],
+      "size": [
+        315,
+        202
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_A",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_A_Loader"
+      },
+      "widgets_values": [
+        "E:/ComfyUI-aki-2.8.0/models/yue/language/YuE-s1-7B-anneal-zh-cot",
+        "ckpt_00360000.pth",
+        "fp16",
+        false,
+        16384,
+        "FP16",
+        2
+      ]
+    },
+    {
+      "id": 12,
+      "type": "YUE_Stage_B_Sampler",
+      "pos": [
+        -5310.00537109375,
+        -1308.0477294921875
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "stage1_set",
+          "label": "stage1_set",
+          "type": "STAGE_SET",
+          "link": 11
+        },
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_B",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "string",
+          "label": "string",
+          "type": "STRING",
+          "links": [
+            16
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_B_Sampler"
+      },
+      "widgets_values": [
+        "decoder_131000.pth",
+        "decoder_151000.pth",
+        true
+      ]
+    },
+    {
+      "id": 13,
+      "type": "YUE_Stage_B_Loader",
+      "pos": [
+        -5329.703125,
+        -1551.664306640625
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "info",
+          "label": "info",
+          "type": "quantization_model",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_B",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_B_Loader"
+      },
+      "widgets_values": [
+        "E:/ComfyUI-aki-2.8.0/models/yue/language/YuE-s1-7B-anneal-zh-cot",
+        8192,
+        2,
+        "FP16",
+        false,
+        true
+      ]
+    },
+    {
+      "id": 14,
+      "type": "SaveAudio",
+      "pos": [
+        -4940.966796875,
+        -1440.03369140625
+      ],
+      "size": [
+        315,
+        100
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "link": 14
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "yue-pl",
+        ""
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -4935.056640625,
+        -1263.3956298828125
+      ],
+      "size": [
+        302.07427978515625,
+        144.67218017578125
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "label": "文本",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "label": "字符串",
+          "type": "STRING",
+          "shape": 6,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "bbda5e52ad580c13ceaa53136d9c2bed9137bd2e",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "/mnt/d/project/ComfyUI/output/yue_304910_female-Cantonese-Melancholic-Classical-airy-vocal-Piano-bright-vocal-Pop-Nostalgic-Violin_tp0@93_T1@0_rp1@1_maxtk3000_a01b3abd-2fad-4c9e-b4b2-edf9c2a00987_mixed.mp3"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "YUE_Stage_A_Loader",
+      "pos": [
+        -6210,
+        -680
+      ],
+      "size": [
+        315,
+        202
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_A",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_A_Loader"
+      },
+      "widgets_values": [
+        "/mnt/d/project/ComfyUI/models/yue/YuE-s1-7B-anneal-en-icl",
+        "ckpt_00360000.pth",
+        "fp16",
+        false,
+        16384,
+        "FP16",
+        2
+      ]
+    },
+    {
+      "id": 18,
+      "type": "YUE_Stage_A_Sampler",
+      "pos": [
+        -5810,
+        -850
+      ],
+      "size": [
+        416.4161682128906,
+        589.5310668945312
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_A",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stage1_set",
+          "label": "stage1_set",
+          "type": "STAGE_SET",
+          "links": [
+            19
+          ]
+        },
+        {
+          "name": "info",
+          "label": "info",
+          "type": "STRING",
+          "links": [
+            18
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_A_Sampler"
+      },
+      "widgets_values": [
+        "inspiring female uplifting pop airy vocal electronic bright vocal vocal.",
+        "[verse]\nStaring at the sunset, colors paint the sky.\nThoughts of you keep swirling, can't deny.\nI know I let you down, I made mistakes.\nBut I'm here to mend the heart I didn't break.\n\n[chorus]\nEvery road you take, I'll be one step behind.\nEvery dream you chase, I'm reaching for the light.\nYou can't fight this feeling now.\nI won't back down.\nYou know you can't deny it now.\n I won't back down \n\n[verse]\nThey might say I'm foolish, chasing after you.\nBut they don't feel this love the way we do.\nMy heart beats only for you, can't you see?\nI won't let you slip away from me. \n\n[chorus]\nEvery road you take, I'll be one step behind.\nEvery dream you chase, I'm reaching for the light.\nYou can't fight this feeling now.\nI won't back down.\nYou know you can't deny it now.\n I won't back down \n\n[bridge]\nNo, I won't back down, won't turn around.\nUntil you're back where you belong.\nI'll cross the oceans wide, stand by your side.\nTogether we are strong. \n\n[outro]\nEvery road you take, I'll be one step behind.\nEvery dream you chase, love's the tie that binds.\nYou can't fight this feeling now.\nI won't back down.",
+        879939708,
+        "randomize",
+        2,
+        1.1,
+        0,
+        30,
+        3000,
+        true,
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 19,
+      "type": "YUE_Stage_B_Loader",
+      "pos": [
+        -5330,
+        -860
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "info",
+          "label": "info",
+          "type": "quantization_model",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_B",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_B_Loader"
+      },
+      "widgets_values": [
+        "/mnt/d/project/ComfyUI/models/yue/YuE-s2-1B-general",
+        8192,
+        2,
+        "FP16",
+        false,
+        true
+      ]
+    },
+    {
+      "id": 20,
+      "type": "YUE_Stage_B_Sampler",
+      "pos": [
+        -5310,
+        -610
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "stage1_set",
+          "label": "stage1_set",
+          "type": "STAGE_SET",
+          "link": 19
+        },
+        {
+          "name": "model",
+          "label": "model",
+          "type": "MODEL_YUE_B",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "label": "audio",
+          "type": "AUDIO",
+          "links": [
+            21
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "string",
+          "label": "string",
+          "type": "STRING",
+          "links": [
+            22
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "aux_id": "smthemex/ComfyUI_YuE",
+        "ver": "d560498b0948ac34fa515945f48006f9693087dc",
+        "Node name for S&R": "YUE_Stage_B_Sampler"
+      },
+      "widgets_values": [
+        "decoder_131000.pth",
+        "decoder_151000.pth",
+        true
+      ]
+    },
+    {
+      "id": 21,
+      "type": "SaveAudio",
+      "pos": [
+        -4940,
+        -750
+      ],
+      "size": [
+        315,
+        100
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "link": 21
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "yue-pl",
+        ""
+      ]
+    },
+    {
+      "id": 22,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -4930,
+        -570
+      ],
+      "size": [
+        300.55377197265625,
+        101.33882141113281
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "label": "文本",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "label": "字符串",
+          "type": "STRING",
+          "shape": 6,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "bbda5e52ad580c13ceaa53136d9c2bed9137bd2e",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "/mnt/d/project/ComfyUI/output/yue_746391_inspiring-female-uplifting-pop-airy-vocal-electronic-bright-vocal-vocal@_tp0@93_T1@0_rp1@1_maxtk3000_db0a35c2-86b2-4671-8a1e-94227471f70a_mixed.mp3"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -6570,
+        -1560
+      ],
+      "size": [
+        253.33335876464844,
+        116.21054077148438
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "label": "可选连接",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    },
+    {
+      "id": 25,
+      "type": "Note",
+      "pos": [
+        -6820,
+        -1410
+      ],
+      "size": [
+        570,
+        1030
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Custom Node： \nhttps://github.com/smthemex/ComfyUI_YuE\n\nmodels：\n--   ComfyUI/models/yue\n    ├── ckpt_00360000.pth\n    ├── decoder_131000.pth\n    ├── decoder_151000.pth\nhttps://huggingface.co/m-a-p/xcodec_mini_infer/tree/main/final_ckpt\nhttps://huggingface.co/m-a-p/YuE-upsampler/tree/main\n\n--   ComfyUI/custom_nodes/ComfyUI_YuE/inference/xcodec_mini_infer/semantic_ckpts/hf_1_325000/\n    ├── pytorch_model.bin\nhttps://huggingface.co/m-a-p/xcodec_mini_infer/tree/main/semantic_ckpts/hf_1_325000\n\n\n--   ComfyUI/models/yue/language/YuE-s1-7B-anneal-en-icl   # 11.5G\n    ├── config.json\n    ├── generation_config.json\n    ├── model.safetensors.index.json\n    ├── tokenizer.model\n    ├── model-00001-of-00003.safetensors\n    ├── model-00002-of-00003.safetensors\n    ├── model-00003-of-00003.safetensors\nhttps://huggingface.co/m-a-p/YuE-s1-7B-anneal-en-icl/tree/main\n\n--   ComfyUI/models/yue/language/YuE-s1-7B-anneal-zh-cot\n    ├── config.json\n    ├── generation_config.json\n    ├── model.safetensors.index.json\n    ├── tokenizer.model\n    ├── model-00001-of-00003.safetensors\n    ├── model-00002-of-00003.safetensors\n    ├── model-00003-of-00003.safetensors\nhttps://huggingface.co/m-a-p/YuE-s1-7B-anneal-zh-cot/tree/main\n\n--   ComfyUI/models/yue/general\n    ├── config.json\n    ├── generation_config.json\n    ├── model.safetensors\n    ├── tokenizer.model\nhttps://huggingface.co/m-a-p/YuE-s2-1B-general/tree/main\ncloud：\nWorkflows：https://pan.quark.cn/s/e76d9e972e8c\nmodels：https://pan.quark.cn/s/5a0ab8dfce6e\nCustom Node：https://pan.quark.cn/s/16dca69ca023\ngithub_Workflows：https://github.com/yjuddpl/Interesting-things\n\nVideos：\nbilibili：https://space.bilibili.com/473724003\nYouTube：https://www.youtube.com/@%E6%9E%AB%E9%93%83%E9%A3%8E%E6%9E%97\n\nYue\nhttps://github.com/smthemex/ComfyUI_YuE\nhttps://map-yue.github.io/\nhttps://github.com/multimodal-art-projection/YuE?tab=readme-ov-file#prompt-engineering-guide\n\n200tags\nhttps://github.com/smthemex/ComfyUI_YuE/blob/main/top_200_tags.json"
+      ],
+      "color": "#c09430",
+      "bgcolor": "rgba(24,24,27,.9)"
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      5,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      3,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      4,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      11,
+      0,
+      10,
+      0,
+      "MODEL_YUE_A"
+    ],
+    [
+      11,
+      10,
+      0,
+      12,
+      0,
+      "STAGE_SET"
+    ],
+    [
+      12,
+      13,
+      0,
+      12,
+      1,
+      "MODEL_YUE_B"
+    ],
+    [
+      13,
+      10,
+      1,
+      13,
+      0,
+      "quantization_model"
+    ],
+    [
+      14,
+      12,
+      0,
+      14,
+      0,
+      "AUDIO"
+    ],
+    [
+      16,
+      12,
+      1,
+      16,
+      0,
+      "STRING"
+    ],
+    [
+      17,
+      17,
+      0,
+      18,
+      0,
+      "MODEL_YUE_A"
+    ],
+    [
+      18,
+      18,
+      1,
+      19,
+      0,
+      "quantization_model"
+    ],
+    [
+      19,
+      18,
+      0,
+      20,
+      0,
+      "STAGE_SET"
+    ],
+    [
+      20,
+      19,
+      0,
+      20,
+      1,
+      "MODEL_YUE_B"
+    ],
+    [
+      21,
+      20,
+      0,
+      21,
+      0,
+      "AUDIO"
+    ],
+    [
+      22,
+      20,
+      1,
+      22,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "YUE-fp16-cn",
+      "bounding": [
+        -6220,
+        -1630,
+        1603.64697265625,
+        682.3237915039062
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "YUE-fp16-en",
+      "bounding": [
+        -6220,
+        -930,
+        1603.64697265625,
+        682.3237915039062
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7247295000000004,
+      "offset": {
+        "0": 6888.52685546875,
+        "1": 1619.179931640625
+      }
+    },
+    "workspace_info": {
+      "id": "K3f1TMlZS__S6ogz4L9JO",
+      "saveLock": false,
+      "cloudID": null,
+      "coverMediaPath": null
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
